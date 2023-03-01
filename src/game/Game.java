@@ -36,14 +36,14 @@ public class Game {
         platform1.setPosition(new Vec2(-8, -4f));
 
         //make a character (with an overlaid image)
-        Shape ShooterShape = new BoxShape(1,2);
-        DynamicBody Shooter = new DynamicBody(world, ShooterShape);
-        Shooter.setPosition(new Vec2(4,-5));
-        Shooter.addImage(new BodyImage("data/student.png", 4));
+        Shape studentShape = new BoxShape(1,2);
+        DynamicBody student = new DynamicBody(world, studentShape);
+        student.setPosition(new Vec2(4,-5));
+        student.addImage(new BodyImage("data/student.png", 4));
 
 
         //3. make a view to look into the game world
-        UserView view = new UserView(world, 900, 600);
+        UserView view = new UserView(world, 500, 500);
 
 
         //optional: draw a 1-metre grid over the view
@@ -67,7 +67,7 @@ public class Game {
         frame.setVisible(true);
 
         //optional: uncomment this to make a debugging view
-         //JFrame debugView = new DebugViewer(world, 500, 500);//
+         JFrame debugView = new DebugViewer(world, 500, 500);
 
         // start our game world simulation!
         world.start();
