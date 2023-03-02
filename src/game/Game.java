@@ -20,33 +20,11 @@ public class Game {
     /** Initialise a new Game. */
     public Game() {
 
-        //1. make an empty game world
-        World world = new World();
+        //Use encapsulated gameworld instead of a normal world//
+        GameWorld world = new GameWorld();
 
-        //2. populate it with bodies (ex: platforms, collectibles, characters)
-
-        //make a ground platform
-        Shape shape = new BoxShape(30, 0.5f);
-        StaticBody ground = new StaticBody(world, shape);
-        ground.setPosition(new Vec2(0f, -11.5f));
-
-        // make a suspended platform
-        Shape platformShape = new BoxShape(3, 0.5f);
-        StaticBody platform1 = new StaticBody(world, platformShape);
-        platform1.setPosition(new Vec2(-8, -4f));
-
-        //make a character (with an overlaid image)
-        Knight knight = new Knight(world);
-        Knight.setPosition(new Vec2(4,-5));
-
-
-        //3. make a view to look into the game world
-        UserView view = new UserView(world, 500, 500);
-
-
-        //optional: draw a 1-metre grid over the view
-        // view.setGridResolution(1);
-
+            //3. make a view to look into the game world
+        GameView view = new GameView(world, 500, 500);
 
         //4. create a Java window (frame) and add the game
         //   view to it
