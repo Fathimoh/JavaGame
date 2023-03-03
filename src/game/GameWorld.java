@@ -8,6 +8,7 @@ public class GameWorld extends World{
         super();
         // populate it with bodies (ex: platforms, collectibles, characters)//
         // make a ground platform//
+
         Shape shape = new BoxShape(30, 0.5f);
         StaticBody ground = new StaticBody(this, shape);
         ground.setPosition(new Vec2(0f, -11.5f));
@@ -20,5 +21,12 @@ public class GameWorld extends World{
         Shape platformShape = new BoxShape(3, 0.5f);
         StaticBody platform1 = new StaticBody(this, platformShape);
         platform1.setPosition(new Vec2(-8, -4f));
+
+        /*Shape backgroundShape = new BoxShape(getView().getWidth(),getView().getHeight());
+        StaticBody background = new StaticBody(this, backgroundShape);
+        background.setPosition(new Vec2(0,0));
+        BodyImage backgroundImage = new BodyImage("data/Background.png", getView().getHeight() / 25f);
+        background.addImage(backgroundImage);*/
+
     }
 }

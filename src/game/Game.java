@@ -28,7 +28,7 @@ public class Game {
 
         //4. create a Java window (frame) and add the game
         //   view to it
-        final JFrame frame = new JFrame("City Game");
+        final JFrame frame = new JFrame("Journey of the Knight");
         frame.add(view);
 
         // enable the frame to quit the application
