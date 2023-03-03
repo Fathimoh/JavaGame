@@ -7,26 +7,27 @@ public class GameWorld extends World{
     public GameWorld(){
         super();
         // populate it with bodies (ex: platforms, collectibles, characters)//
-        // make a ground platform//
-
-        Shape shape = new BoxShape(30, 0.5f);
-        StaticBody ground = new StaticBody(this, shape);
-        ground.setPosition(new Vec2(0f, -11.5f));
-
         // make a character (with an overlaid image)//
         Knight knight = new Knight(this);
         knight.setPosition(new Vec2(4,-5));
 
         // make a suspended platform//
-        Shape platformShape = new BoxShape(3, 0.5f);
-        StaticBody platform1 = new StaticBody(this, platformShape);
-        platform1.setPosition(new Vec2(-8, -4f));
+        Shape platformShape = new BoxShape(2, 2.5f);
+        StaticBody Brick = new StaticBody(this, platformShape);
+        Brick.setPosition(new Vec2(-8, -4f));
+        BodyImage image = new BodyImage("data/Tileset/BlockwPlat.png");
+        Brick.addImage(image);
 
-        /*Shape backgroundShape = new BoxShape(getView().getWidth(),getView().getHeight());
-        StaticBody background = new StaticBody(this, backgroundShape);
-        background.setPosition(new Vec2(0,0));
-        BodyImage backgroundImage = new BodyImage("data/Background.png", getView().getHeight() / 25f);
-        background.addImage(backgroundImage);*/
+        // make a ground platform//
+        Shape shape = new BoxShape(40, 0.5f);
+        StaticBody ground = new StaticBody(this, shape);
+        ground.setPosition(new Vec2(0f, -14.1f));
+        BodyImage wideImage = new BodyImage("data/Tileset/BlockwPlat.png", 1.9f);
+        ground.addImage(wideImage);
+
+        //add skeleton to the game//
+        Skeleton skeleton = new Skeleton(this);
+        skeleton.setPosition(new Vec2(5,-1));
 
     }
 }
