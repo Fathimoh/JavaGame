@@ -57,8 +57,8 @@ import java.util.*;
  * lets you edit the polygon drawn in a previous session around the image yellow-bird.gif).
  */
 public class PolygonEditor extends JPanel
-{   private static double WIDTH = 500;
-    private static double HEIGHT = 500;
+{   private static double WIDTH = 700;
+    private static double HEIGHT = 600;
     private static int SCALE = 8;
 
     private List<Point2D.Float> points;
@@ -241,7 +241,7 @@ public class PolygonEditor extends JPanel
      * @param args command line arguments.
      */
     public static void main(String[] args) {
-        String fileName = "data/Idle.gif";
+        String fileName = "data/Enemy/SkeletonStandingLeft.png";
         float boxHeight = 4.0f;
         int firstCoordIndex = 0;
         if (args.length > 0) {

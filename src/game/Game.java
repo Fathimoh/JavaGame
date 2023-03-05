@@ -23,11 +23,12 @@ public class Game {
         //Use encapsulated gameworld instead of a normal world//
         GameWorld world = new GameWorld();
 
-            //3. make a view to look into the game world
-        GameView view = new GameView(world, 500, 500);
+        //make a view to look into the game world
+        GameView view = new GameView(world, 700, 600);
+        KnightController kc = new KnightController(world.getKnight());
+        view.addKeyListener(kc);
 
-        //4. create a Java window (frame) and add the game
-        //   view to it
+        //create a Java window (frame) and add the game
         final JFrame frame = new JFrame("Journey of the Knight");
         frame.add(view);
 
@@ -47,6 +48,7 @@ public class Game {
 
         // start our game world simulation!
         world.start();
+        view.requestFocus();
     }
 
     /** Run the game. */
