@@ -27,7 +27,7 @@ public class KnightController implements KeyListener {
 
         int code = e.getKeyCode();
         if (code == KeyEvent.VK_A) {
-            BodyImage image1 = new BodyImage("data/RunLeft.gif",6f);
+            BodyImage image1 = new BodyImage("data/RunLeft.gif",8f);
             knight.removeAllImages();
             knight.addImage(image1);
             knight.startWalking(-5);
@@ -36,7 +36,7 @@ public class KnightController implements KeyListener {
             Jumping = false;
 
         } else if (code == KeyEvent.VK_D) {
-            BodyImage image2 = new BodyImage("data/RunRight.gif",6f);
+            BodyImage image2 = new BodyImage("data/RunRight.gif",8f);
             knight.removeAllImages();
             knight.addImage(image2);
             knight.startWalking(5);
@@ -45,8 +45,8 @@ public class KnightController implements KeyListener {
             Jumping = false;
 
         } else if (code == KeyEvent.VK_W) {
-            BodyImage image3 = new BodyImage("data/JumpLeft.gif",6f);
-            BodyImage image4 = new BodyImage("data/JumpRight.gif",6f);
+            BodyImage image3 = new BodyImage("data/JumpLeft.gif",8f);
+            BodyImage image4 = new BodyImage("data/JumpRight.gif",8f);
 
             if(IsRight == true && IsLeft == false){
                 knight.removeAllImages();
@@ -69,13 +69,13 @@ public class KnightController implements KeyListener {
 
         if (code == KeyEvent.VK_A) {
             knight.stopWalking();
-            BodyImage image1 = new BodyImage("data/IdleLeft.gif",6f);
+            BodyImage image1 = new BodyImage("data/IdleLeft.gif",8f);
             knight.removeAllImages();
             knight.addImage(image1);
 
         } else if (code == KeyEvent.VK_D) {
             knight.stopWalking();
-            BodyImage image2 = new BodyImage("data/IdleRight.gif",6f);
+            BodyImage image2 = new BodyImage("data/IdleRight.gif",8f);
             knight.removeAllImages();
             knight.addImage(image2);
         }

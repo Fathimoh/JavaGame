@@ -24,7 +24,7 @@ public class Game {
         GameWorld world = new GameWorld();
 
         //make a view to look into the game world
-        GameView view = new GameView(world, 700, 600);
+        GameView view = new GameView(world, 1424, 600);
         KnightController kc = new KnightController(world.getKnight());
         view.addKeyListener(kc);
 

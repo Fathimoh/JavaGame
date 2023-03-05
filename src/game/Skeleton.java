@@ -12,7 +12,7 @@ public class Skeleton extends DynamicBody {
             0.84f,-0.82f,
             0.81f,0.27f,
             0.35f,1.23f);
-    private static final BodyImage image = new BodyImage("data/Enemy/SkeletonStandingLeft.png", 4f);
+    private static final BodyImage image = new BodyImage("data/Enemy/SkeletonStandingLeft.png", 5f);
 
 
     public Skeleton(World world){
