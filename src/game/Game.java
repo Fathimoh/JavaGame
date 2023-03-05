@@ -50,8 +50,6 @@ public class Game {
         world.start();
         GiveFocus focus = new GiveFocus(view);
         view.addMouseListener(focus);
-
-        view.requestFocus();
     }
 
     /** Run the game. */
