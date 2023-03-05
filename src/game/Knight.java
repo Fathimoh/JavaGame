@@ -11,7 +11,7 @@ public class Knight extends Walker {
             0.4f,-1.52f,
             -0.05f,-0.1f);
 
-    private static final BodyImage image = new BodyImage("data/Idle.gif", 6f);
+    private static final BodyImage image = new BodyImage("data/IdleRight.gif", 6f);
 
 
     public Knight(World world){

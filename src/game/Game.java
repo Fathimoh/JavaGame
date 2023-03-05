@@ -48,6 +48,9 @@ public class Game {
 
         // start our game world simulation!
         world.start();
+        GiveFocus focus = new GiveFocus(view);
+        view.addMouseListener(focus);
+
         view.requestFocus();
     }
 
