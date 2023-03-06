@@ -18,7 +18,7 @@ public class Skeleton extends DynamicBody {
     public Skeleton(World world){
         super(world, SkeletonShape);
         addImage(image);
-        this.setAlwaysOutline(true);
+        //this.setAlwaysOutline(true);
     }
 
 }

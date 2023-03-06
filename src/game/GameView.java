@@ -12,6 +12,7 @@ public class GameView extends UserView {
         this.background1 = new ImageIcon("data/BG.png").getImage();
     }
 
+
     @Override
     protected void paintBackground(Graphics2D g) {
         g.drawImage(background1, 0, 0, this);

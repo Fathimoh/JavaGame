@@ -12,13 +12,21 @@ public class Knight extends Walker {
             0.7f,1.63f,
             0.37f,1.97f);
 
-
     private static final BodyImage image = new BodyImage("data/IdleRight.gif", 4f);
 
 
     public Knight(World world){
         super(world, KnightShape);
         addImage(image);
-        this.setAlwaysOutline(true);
+        //this.setAlwaysOutline(true);
     }
 }
+
+/*what's left:
+- stats on foreground
+- collectables such as coins/stars
+- moving skeletons
+- Knight attacks
+- Collisions with skeleton
+- platforms in place
+ */
