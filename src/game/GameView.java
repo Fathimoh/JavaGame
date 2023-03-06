@@ -17,10 +17,12 @@ public class GameView extends UserView {
     protected void paintBackground(Graphics2D g) {
         g.drawImage(background1, 0, 0, this);
     }
-/*
-    @Override
+
+/*    @Override
     protected void paintForeground(Graphics2D g) {
         g.drawImage(background2, 0, 0, this);
-    }*/
+    }
+
+ */
 }
 

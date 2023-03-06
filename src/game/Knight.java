@@ -14,11 +14,27 @@ public class Knight extends Walker {
 
     private static final BodyImage image = new BodyImage("data/IdleRight.gif", 4f);
 
+    private int coins = 0;
+
 
     public Knight(World world){
         super(world, KnightShape);
         addImage(image);
+        coins = 0;
         //this.setAlwaysOutline(true);
+    }
+
+    public void setCoins(int coins){
+        this.coins = coins;
+        System.out.println("Coins = " + coins);
+    }
+
+    public int getCoins(){
+        return coins;
+    }
+
+    public void addCoins(){
+        setCoins(getCoins() +1);
     }
 }
 
