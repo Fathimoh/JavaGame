@@ -14,6 +14,7 @@ public class GameWorld extends World {
         knight = new Knight(this);
         knight.setPosition(new Vec2(-34, -13));
         knight.setName("Knight");
+        knight.setGravityScale(1.0f);
 
         // Make a horizontal platforms in the middle//
         Shape MidPlatformShape1 = new BoxShape(3, 0.5f);
@@ -58,6 +59,7 @@ public class GameWorld extends World {
         Skeleton skeleton1 = new Skeleton(this);
         skeleton1.setPosition(new Vec2(8, -2));
         skeleton1.setName("Skeleton");
+        skeleton1.addCollisionListener(new SkeletonEncounter());
 
         Skeleton skeleton2 = new Skeleton(this);
         skeleton2.setPosition(new Vec2(6, -12f));
@@ -74,6 +76,11 @@ public class GameWorld extends World {
         c2.addCollisionListener(cp);
 
         knight.addCollisionListener(cp);
+
+        //add skeleton collisions into gameworld//
+
+
+
     }
 
     public Knight getKnight() {

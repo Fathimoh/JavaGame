@@ -1,8 +1,9 @@
 package game;
 
 import city.cs.engine.*;
+import org.jbox2d.common.Vec2;
 
-public class Skeleton extends DynamicBody {
+public class Skeleton extends Walker implements StepListener {
     private static final Shape SkeletonShape = new PolygonShape(
             -0.38f,1.56f,
             -0.99f,0.4f,
@@ -14,11 +15,37 @@ public class Skeleton extends DynamicBody {
             0.17f,1.56f);
     private static final BodyImage image = new BodyImage("data/Enemy/SkeletonStandingLeft.png", 5f);
 
+    private final int SPEED = 3;
+    private float left,right;
+    private final int RANGE = 1;
+
 
     public Skeleton(World world){
         super(world, SkeletonShape);
         addImage(image);
+        world.addStepListener(this);
+        startWalking(SPEED);
         //this.setAlwaysOutline(true);
     }
 
+    public void setPosition(Vec2 position){
+        super.setPosition(position);
+        left = position.x-RANGE;
+        right = position.x+RANGE;
+    }
+
+    @Override
+    public void preStep(StepEvent stepEvent) {
+        if(getPosition().x > right){
+            startWalking(-SPEED);
+        }
+        if(getPosition().x < left){
+            startWalking(SPEED);
+        }
+    }
+
+    @Override
+    public void postStep(StepEvent stepEvent) {
+
+    }
 }

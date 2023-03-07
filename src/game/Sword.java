@@ -18,5 +18,6 @@ public class Sword extends Walker{
     public Sword(World world) {
         super(world, swordShape);
         addImage(image);
+        this.setAlwaysOutline(true);
     }
 }

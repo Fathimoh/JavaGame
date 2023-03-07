@@ -15,6 +15,8 @@ public class Knight extends Walker {
     private static final BodyImage image = new BodyImage("data/IdleRight.gif", 4f);
 
     private int coins = 0;
+    private int SkeletonCounter = 0;
+    private int health = 5;
 
 
     public Knight(World world){
@@ -22,6 +24,14 @@ public class Knight extends Walker {
         addImage(image);
         coins = 0;
         //this.setAlwaysOutline(true);
+    }
+
+    public void DecreaseHealth(){
+        health -= 1;
+        System.out.println("Health - 1 and is now "+ health);
+        if(health <= 0){
+            System.out.println("Game over");
+        }
     }
 
     public void setCoins(int coins){
@@ -36,13 +46,18 @@ public class Knight extends Walker {
     public void addCoins(){
         setCoins(getCoins() +1);
     }
+
+    public int getSkeletons(){
+        return SkeletonCounter;
+    };
+    public void setSkeleton(int SkeletonCounter){
+        this.SkeletonCounter = SkeletonCounter;
+        System.out.println("Skeletons = " + SkeletonCounter);
+    }
 }
+
 
 /*what's left:
 - stats on foreground
-- collectables such as coins/stars
-- moving skeletons
-- Knight attacks
 - Collisions with skeleton
-- platforms in place
  */

@@ -95,8 +95,8 @@ public class KnightController implements KeyListener {
         } else if (code == KeyEvent.VK_RIGHT) {
             isRight = true;
             isLeft = false;
-            setAttackImage(4f, "data/Attack2Right.gif");
-
+            //setAttackImage(4f, "data/Attack2Right.gif");
+            BodyImage swordImage = new BodyImage("data/Attack2Right");
         }
     }
 
