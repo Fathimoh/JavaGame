@@ -6,6 +6,8 @@ import org.jbox2d.common.Vec2;
 public class GameWorld extends World {
     private Knight knight;
     private Coins coins;
+    private SkeletonEncounter skeletonEncounter;
+    private Sword sword;
 
     public GameWorld() {
         super();
@@ -15,6 +17,7 @@ public class GameWorld extends World {
         knight.setPosition(new Vec2(-34, -13));
         knight.setName("Knight");
         knight.setGravityScale(1.0f);
+
 
         // Make a horizontal platforms in the middle//
         Shape MidPlatformShape1 = new BoxShape(3, 0.5f);
@@ -55,15 +58,6 @@ public class GameWorld extends World {
         ground.setPosition(new Vec2(0f, -15f));
         ground.setName("ground");
 
-        // Add skeleton enemies to the game//
-        Skeleton skeleton1 = new Skeleton(this);
-        skeleton1.setPosition(new Vec2(8, -2));
-        skeleton1.setName("Skeleton");
-        skeleton1.addCollisionListener(new SkeletonEncounter());
-
-        Skeleton skeleton2 = new Skeleton(this);
-        skeleton2.setPosition(new Vec2(6, -12f));
-        skeleton2.setName("Skeleton");
 
         //add coins//
         CoinsPickup cp = new CoinsPickup(knight);
@@ -72,18 +66,29 @@ public class GameWorld extends World {
         c1.addCollisionListener(cp);
 
         Coins c2 = new Coins(this);
-        c2.setPosition(new Vec2(-5f,-5f));
+        c2.setPosition(new Vec2(-5f, -5f));
         c2.addCollisionListener(cp);
 
         knight.addCollisionListener(cp);
 
-        //add skeleton collisions into gameworld//
+        //add skeleton collisions and skeleton into gameworld//
+        SkeletonEncounter se = new SkeletonEncounter(knight);
+        Skeleton sk = new Skeleton(this);
+        sk.setPosition(new Vec2(7f, -2f));
+        sk.addCollisionListener(se);
 
+        Skeleton sk2 = new Skeleton(this);
+        sk2.setPosition(new Vec2(2f, -12f));
+        sk2.addCollisionListener(se);
 
-
+        knight.addCollisionListener(se);
     }
 
     public Knight getKnight() {
         return knight;
+    }
+
+    public Sword getSword(){
+        return sword;
     }
 }

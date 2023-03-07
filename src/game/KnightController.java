@@ -1,7 +1,7 @@
 package game;
 
-import city.cs.engine.Body;
 import city.cs.engine.BodyImage;
+import org.jbox2d.common.Vec2;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -11,7 +11,6 @@ public class KnightController implements KeyListener {
     private final Knight knight;
     private boolean isRight;
     private boolean isLeft;
-    private boolean isJumping;
 
     public KnightController(Knight knight) {
         this.knight = knight;
@@ -35,10 +34,12 @@ public class KnightController implements KeyListener {
             attackImage = new BodyImage(attackImageFile, 4);
             knight.removeAllImages();
             knight.addImage(attackImage);
+            //sword.addImage(attackImage);
         } else if (isLeft) {
             attackImage = new BodyImage(attackImageFile, 4);
             knight.removeAllImages();
             knight.addImage(attackImage);
+            //sword.addImage(attackImage);
         }
     }
 
@@ -49,7 +50,7 @@ public class KnightController implements KeyListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
-        System.out.println("Key pressed " + e.getKeyChar());
+        //System.out.println("Key pressed " + e.getKeyChar());
 
         int code = e.getKeyCode();
         if (code == KeyEvent.VK_A) {
@@ -59,7 +60,6 @@ public class KnightController implements KeyListener {
             knight.startWalking(-6.5f);
             isLeft = true;
             isRight = false;
-            isJumping = false;
 
         } else if (code == KeyEvent.VK_D) {
             BodyImage image2 = new BodyImage("data/RunRight.gif", 4f);
@@ -68,7 +68,6 @@ public class KnightController implements KeyListener {
             knight.startWalking(6.5f);
             isRight = true;
             isLeft = false;
-            isJumping = false;
 
         } else if (code == KeyEvent.VK_W) {
             BodyImage image3 = new BodyImage("data/JumpLeft.gif", 4f);
@@ -78,13 +77,11 @@ public class KnightController implements KeyListener {
                 knight.removeAllImages();
                 knight.addImage(image4);
                 knight.jump(10f);
-                isJumping = true;
 
             } else if (isLeft) {
                 knight.removeAllImages();
                 knight.addImage(image3);
                 knight.jump(10f);
-                isJumping = true;
 
             }
         } else if (code == KeyEvent.VK_LEFT) {
@@ -95,8 +92,7 @@ public class KnightController implements KeyListener {
         } else if (code == KeyEvent.VK_RIGHT) {
             isRight = true;
             isLeft = false;
-            //setAttackImage(4f, "data/Attack2Right.gif");
-            BodyImage swordImage = new BodyImage("data/Attack2Right");
+            setAttackImage(4f, "data/Attack2Right.gif");
         }
     }
 

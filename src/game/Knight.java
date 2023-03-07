@@ -26,9 +26,9 @@ public class Knight extends Walker {
         //this.setAlwaysOutline(true);
     }
 
-    public void DecreaseHealth(){
+    public void DecreaseKnightHealth(){
         health -= 1;
-        System.out.println("Health - 1 and is now "+ health);
+        System.out.println("Knight Health: "+ health);
         if(health <= 0){
             System.out.println("Game over");
         }
@@ -52,12 +52,14 @@ public class Knight extends Walker {
     };
     public void setSkeleton(int SkeletonCounter){
         this.SkeletonCounter = SkeletonCounter;
-        System.out.println("Skeletons = " + SkeletonCounter);
+        System.out.println("Skeleton killed: " + SkeletonCounter);
     }
+
 }
 
 
 /*what's left:
 - stats on foreground
-- Collisions with skeleton
+- Knight kills skeleton with projectile
+- Use of timers
  */

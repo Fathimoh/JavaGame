@@ -15,9 +15,10 @@ public class Skeleton extends Walker implements StepListener {
             0.17f,1.56f);
     private static final BodyImage image = new BodyImage("data/Enemy/SkeletonStandingLeft.png", 5f);
 
-    private final int SPEED = 3;
+    private final int SPEED = 2;
     private float left,right;
     private final int RANGE = 1;
+    private int health = 2;
 
 
     public Skeleton(World world){
@@ -26,6 +27,11 @@ public class Skeleton extends Walker implements StepListener {
         world.addStepListener(this);
         startWalking(SPEED);
         //this.setAlwaysOutline(true);
+    }
+
+    public void DecreaseSkeletonHealth(){
+        health -= 1;
+        System.out.println("Skeleton Health: "+ health);
     }
 
     public void setPosition(Vec2 position){
