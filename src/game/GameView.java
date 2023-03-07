@@ -27,7 +27,7 @@ public class GameView extends UserView {
 
         String CoinsCollected = "Coins: ";
         g.drawString(CoinsCollected,12, 20);
-        //+ knight.getCoins();//
+        //+ knight.getCoins();//    
 
 
     }

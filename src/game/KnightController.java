@@ -101,11 +101,11 @@ public class KnightController implements KeyListener {
         int code = e.getKeyCode();
 
         if (code == KeyEvent.VK_A) {
-            knight.stopWalking();
+            knight.startWalking(0);
             setIdleImage();
 
         } else if (code == KeyEvent.VK_D) {
-            knight.stopWalking();
+            knight.startWalking(0);
             setIdleImage();
 
         } else if (code == KeyEvent.VK_LEFT) {
