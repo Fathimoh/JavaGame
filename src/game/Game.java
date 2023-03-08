@@ -15,7 +15,7 @@ public class Game {
         GameWorld world = new GameWorld();
 
         //make a view to look into the game world
-        GameView view = new GameView(world, 1424, 600);
+        GameView view = new GameView(world, 1424, 600, world.getKnight());
         KnightController kc = new KnightController(world.getKnight());
         view.addKeyListener(kc);
 
@@ -35,7 +35,7 @@ public class Game {
         frame.setVisible(true);
 
         //optional: uncomment this to make a debugging view
-        // JFrame debugView = new DebugViewer(world, 500, 500);//
+        // JFrame debugView = new DebugViewer(world, 500, 500);
 
         // start our game world simulation!
         world.start();

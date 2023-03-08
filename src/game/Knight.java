@@ -36,7 +36,6 @@ public class Knight extends Walker {
 
     public void setCoins(int coins){
         this.coins = coins;
-        System.out.println("Coins = " + coins);
     }
 
     public int getCoins(){
