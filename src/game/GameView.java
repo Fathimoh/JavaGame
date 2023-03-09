@@ -40,12 +40,18 @@ public class GameView extends UserView {
         g.setFont(font);
         g.setColor(Color.ORANGE);
 
+        //coin stats displays//
         String CoinsCollected = "Coins: " + knight.getCoins();
         g.drawString(CoinsCollected,9, 43);
 
+        //Skeleton kills displays//
+        String Kills = "Kills: " + knight.getSkeletons();
+        g.drawString(Kills, 9, 80);
+       // g.setColor(Color.RED);
+
         int coinWidth = 20;
         int coinHeight = 20;
-        g.drawImage(Coin, 27, 8, coinWidth, coinHeight, this);
+        //g.drawImage(Coin, 27, 8, coinWidth, coinHeight, this);
 
     }
 }

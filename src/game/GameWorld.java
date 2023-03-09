@@ -7,7 +7,6 @@ public class GameWorld extends World {
     private Knight knight;
     private Coins coins;
     private SkeletonEncounter skeletonEncounter;
-    private Sword sword;
 
     public GameWorld() {
         super();
@@ -99,8 +98,5 @@ public class GameWorld extends World {
     public Knight getKnight() {
         return knight;
     }
-
-    public Sword getSword(){
-        return sword;
-    }
 }
+

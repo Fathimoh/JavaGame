@@ -7,13 +7,16 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 public class KnightController implements KeyListener {
-
     private final Knight knight;
+
     private boolean isRight;
     private boolean isLeft;
 
+    private Slash attack;
+
     public KnightController(Knight knight) {
         this.knight = knight;
+        this.attack = new Slash(knight.getWorld(), knight, this);
     }
 
     private void setIdleImage() {
@@ -34,12 +37,10 @@ public class KnightController implements KeyListener {
             attackImage = new BodyImage(attackImageFile, 4);
             knight.removeAllImages();
             knight.addImage(attackImage);
-            //sword.addImage(attackImage);
         } else if (isLeft) {
             attackImage = new BodyImage(attackImageFile, 4);
             knight.removeAllImages();
             knight.addImage(attackImage);
-            //sword.addImage(attackImage);
         }
     }
 
@@ -84,16 +85,22 @@ public class KnightController implements KeyListener {
                 knight.jump(13.5f);
 
             }
+
         } else if (code == KeyEvent.VK_LEFT) {
+
             isLeft = true;
             isRight = false;
             setAttackImage(4f, "data/Attack1Left.gif");
+            attack.hit();
 
         } else if (code == KeyEvent.VK_RIGHT) {
             isRight = true;
             isLeft = false;
             setAttackImage(4f, "data/Attack2Right.gif");
+            attack.hit();
         }
+
+
     }
 
     @Override
@@ -114,5 +121,12 @@ public class KnightController implements KeyListener {
         } else if (code == KeyEvent.VK_RIGHT) {
             setAttackImage(4f, "data/IdleRight.gif");
         }
+    }
+    public boolean isRight() {
+        return isRight;
+    }
+
+    public boolean isLeft() {
+        return isLeft;
     }
 }

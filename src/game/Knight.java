@@ -1,8 +1,13 @@
 package game;
 
 import city.cs.engine.*;
+import org.jbox2d.common.Vec2;
+
+import java.awt.geom.RectangularShape;
 
 public class Knight extends Walker {
+    private boolean IsLeft;
+    private boolean IsRight;
     private static final Shape KnightShape = new PolygonShape(
             -0.05f,2.0f,
             -1.11f,0.69f,
@@ -16,7 +21,8 @@ public class Knight extends Walker {
 
     private int coins = 0;
     private int SkeletonCounter = 0;
-    private int health = 5;
+    private int health = 3;
+    private int projectileSpeed = 20;
 
 
     public Knight(World world){
@@ -53,7 +59,6 @@ public class Knight extends Walker {
         this.SkeletonCounter = SkeletonCounter;
         System.out.println("Skeleton killed: " + SkeletonCounter);
     }
-
 }
 
 
