@@ -11,11 +11,15 @@ public class GameView extends UserView {
     private final Image Coin;
     private Knight knight;
     private Font font;
+    private final Image Skull;
+    private final Image Heart;
 
     public GameView(GameWorld world, int width, int height, Knight knight) {
         super(world, width, height);
         this.background = new ImageIcon("data/BG.png").getImage();
         this.Coin = new ImageIcon("data/StaticCoin.jpg").getImage();
+        this.Skull = new ImageIcon("data/Skull.jpg").getImage();
+        this.Heart = new ImageIcon("data/Heart.jpg").getImage();
         this.knight = knight;
     }
 
@@ -38,7 +42,7 @@ public class GameView extends UserView {
         }
 
         g.setFont(font);
-        g.setColor(Color.ORANGE);
+        g.setColor(Color.YELLOW);
 
         //coin stats displays//
         String CoinsCollected = "Coins: " + knight.getCoins();
@@ -47,11 +51,17 @@ public class GameView extends UserView {
         //Skeleton kills displays//
         String Kills = "Kills: " + knight.getSkeletons();
         g.drawString(Kills, 9, 80);
-       // g.setColor(Color.RED);
 
-        int coinWidth = 20;
-        int coinHeight = 20;
-        //g.drawImage(Coin, 27, 8, coinWidth, coinHeight, this);
+        //Displays the health count//
+        String Lives = "Health: " + knight.getHealth();
+        g.drawString(Lives, 9, 120);
+
+        //draw images next to the statistics//
+        int Width = 25;
+        int Height = 22;
+        g.drawImage(Coin, 135, 4, Width, Height, this);
+        g.drawImage(Skull, 120, 40, Width, Height, this);
+        g.drawImage(Heart, 148, 82, Width, Height, this);
 
     }
 }

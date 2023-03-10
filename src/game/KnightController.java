@@ -1,7 +1,6 @@
 package game;
 
 import city.cs.engine.BodyImage;
-import org.jbox2d.common.Vec2;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -60,7 +59,7 @@ public class KnightController implements KeyListener {
             knight.addImage(image1);
             knight.startWalking(-7f);
             isLeft = true;
-            isRight = false;
+            isRight = false;    
 
         } else if (code == KeyEvent.VK_D) {
             BodyImage image2 = new BodyImage("data/RunRight.gif", 4f);

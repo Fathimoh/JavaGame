@@ -13,7 +13,7 @@ public class Game {
     /** Initialise a new Game. */
     public Game() {
 
-        //Use encapsulated gameworld instead of a normal world//
+        //Use encapsulated gameWorld instead of a normal world//
         GameWorld world = new GameWorld();
 
         //make a view to look into the game world
@@ -37,7 +37,7 @@ public class Game {
         frame.setVisible(true);
 
         //optional: uncomment this to make a debugging view
-        JFrame debugView = new DebugViewer(world, 500, 500);
+       // JFrame debugView = new DebugViewer(world, 500, 500);
 
         // start our game world simulation!
         world.start();

@@ -1,13 +1,8 @@
 package game;
 
 import city.cs.engine.*;
-import org.jbox2d.common.Vec2;
-
-import java.awt.geom.RectangularShape;
 
 public class Knight extends Walker {
-    private boolean IsLeft;
-    private boolean IsRight;
     private static final Shape KnightShape = new PolygonShape(
             -0.05f,2.0f,
             -1.11f,0.69f,
@@ -21,8 +16,7 @@ public class Knight extends Walker {
 
     private int coins = 0;
     private int SkeletonCounter = 0;
-    private int health = 3;
-    private int projectileSpeed = 20;
+    private int health = 1;
 
 
     public Knight(World world){
@@ -34,10 +28,14 @@ public class Knight extends Walker {
 
     public void DecreaseKnightHealth(){
         health -= 1;
-        System.out.println("Knight Health: "+ health);
+        //System.out.println("Knight Health: "+ health);
         if(health <= 0){
             System.out.println("Game over");
         }
+    }
+
+    public int getHealth(){
+        return health;
     }
 
     public void setCoins(int coins){
@@ -57,13 +55,13 @@ public class Knight extends Walker {
     };
     public void setSkeleton(int SkeletonCounter){
         this.SkeletonCounter = SkeletonCounter;
-        System.out.println("Skeleton killed: " + SkeletonCounter);
+        //System.out.println("Skeleton killed: " + SkeletonCounter);
     }
 }
 
 
 /*what's left:
-- stats on foreground
-- Knight kills skeleton with projectile
+- icons next to stats
+- projectiles need to disappear after a certain amount of time
 - Use of timers
  */

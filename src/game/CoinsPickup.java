@@ -12,7 +12,6 @@ public class CoinsPickup implements CollisionListener {
 
     @Override
     public void collide(CollisionEvent collisionEvent) {
-
         if (collisionEvent.getOtherBody() instanceof Coins) {
             knight.addCoins();
             collisionEvent.getOtherBody().destroy(); //removes the coins//

@@ -18,7 +18,7 @@ public class Skeleton extends Walker implements StepListener {
     private final int SPEED = 2;
     private float left,right;
     private final int RANGE = 1;
-    private int health = 2;
+    private int health = 1;
 
 
     public Skeleton(World world){
