@@ -16,79 +16,30 @@ public class GameWorld extends World {
 
 
         // Make a horizontal platforms in the middle//
-        Shape MidPlatformShape1 = new BoxShape(3f, 0.5f);
-        StaticBody MidPlatform1 = new StaticBody(this, MidPlatformShape1);
-        BodyImage MP1 = new BodyImage("data/Tileset/LandBlock.png", 5.5f);
-        MidPlatform1.setClipped(true);
-        MidPlatform1.addImage(MP1);
-        MidPlatform1.setPosition(new Vec2(-5f, -6.5f));
+        Shape PlatformShape = new BoxShape(3f, 0.5f);
+        Shape groundPlatform = new BoxShape(40, 0.5f);
 
-        Shape MidPlatformShape2 = new BoxShape(3f, 0.5f);
-        StaticBody MidPlatform2 = new StaticBody(this, MidPlatformShape2);
-        BodyImage MP2 = new BodyImage("data/Tileset/LandBlock.png", 6f);
-        MidPlatform2.setClipped(true);
-        MidPlatform2.addImage(MP2);
-        MidPlatform2.setPosition(new Vec2(-6f, 3.5f));
+        Platform platform2 = new Platform(this, PlatformShape, -5f,-6.5f);
+
+        Platform platform3 = new Platform(this, PlatformShape, -6f,3.5f);
 
         // Make platforms on the left//
-        Shape LeftPlatformShape1 = new BoxShape(3f, 0.5f);
-        StaticBody LeftPlatform1 = new StaticBody(this, LeftPlatformShape1);
-        BodyImage LP1 = new BodyImage("data/Tileset/LandBlock.png", 6f);
-        LeftPlatform1.setClipped(true);
-        LeftPlatform1.addImage(LP1);
-        LeftPlatform1.setPosition(new Vec2(-14f, -11f));
+        Platform platform1 = new Platform(this,PlatformShape, -14,-11);
 
-        Shape LeftPlatformShape2 = new BoxShape(3f, 0.5f);
-        StaticBody LeftPlatform2 = new StaticBody(this, LeftPlatformShape2);
-        BodyImage LP2 = new BodyImage("data/Tileset/LandBlock.png", 6f);
-        LeftPlatform2.setClipped(true);
-        LeftPlatform2.addImage(LP2);
-        LeftPlatform2.setPosition(new Vec2(-19f, -4f));
+        Platform platform4 = new Platform(this,PlatformShape,-19f,-4);
 
-        Shape LeftPlatformShape3 = new BoxShape(3, 0.5f);
-        StaticBody LeftPlatform3 = new StaticBody(this, LeftPlatformShape3);
-        BodyImage LP3 = new BodyImage("data/Tileset/LandBlock.png", 6f);
-        LeftPlatform3.setClipped(true);
-        LeftPlatform3.addImage(LP3);
-        LeftPlatform3.setPosition(new Vec2(-29f, -1f));
+        Platform platform5 = new Platform(this, PlatformShape,-29f,-1f);
 
-        Shape LeftPlatformShape4 = new BoxShape(3f, 0.5f);
-        StaticBody LeftPlatform4 = new StaticBody(this, LeftPlatformShape4);
-        BodyImage LP4 = new BodyImage("data/Tileset/LandBlock.png", 6f);
-        LeftPlatform4.setClipped(true);
-        LeftPlatform4.addImage(LP4);
-        LeftPlatform4.setPosition(new Vec2(-18f, 3.5f));
+        Platform platform6 = new Platform(this,PlatformShape, -18f,3.5f);
 
+        Platform platform7 = new Platform(this,PlatformShape, 6f,-5f);
 
-        // Make platform on the right//
-        Shape RightPlatformShape1 = new BoxShape(3, 0.5f);
-        StaticBody RightPlatform1 = new StaticBody(this, RightPlatformShape1);
-        BodyImage RP1 = new BodyImage("data/Tileset/LandBlock.png", 6f);
-        RightPlatform1.setClipped(true);
-        RightPlatform1.addImage(RP1);
-        RightPlatform1.setPosition(new Vec2(6f, -5f));
+        Platform platform8 = new Platform(this,PlatformShape, 15f,-11f);
 
-        Shape RightPlatformShape2 = new BoxShape(3, 0.5f);
-        StaticBody RightPlatform2 = new StaticBody(this, RightPlatformShape2);
-        BodyImage RP2 = new BodyImage("data/Tileset/LandBlock.png", 6f);
-        RightPlatform2.setClipped(true);
-        RightPlatform2.addImage(RP2);
-        RightPlatform2.setPosition(new Vec2(15f, -11f));
-
-        Shape RightPlatformShape3 = new BoxShape(3f, 0.5f);
-        StaticBody RightPlatform3 = new StaticBody(this, RightPlatformShape3);
-        BodyImage RP3 = new BodyImage("data/Tileset/LandBlock.png", 6f);
-        RightPlatform3.setClipped(true);
-        RightPlatform3.addImage(RP3);
-        RightPlatform3.setPosition(new Vec2(7f, 3.5f));
+        Platform platform9 = new Platform(this, PlatformShape, 7f,3.5f);
 
         // Make a ground platform//
-        Shape groundShape = new BoxShape(40, 0.5f);
-        StaticBody ground = new StaticBody(this, groundShape);
-        BodyImage G = new BodyImage("data/Tileset/LandBlock.png", 100f);
-        ground.setClipped(true);
-        ground.addImage(G);
-        ground.setPosition(new Vec2(0f, -15f));
+        Platform platformG = new Platform(this, groundPlatform, 0f,-15f, "ground");
 
         //add coins//
         CoinsPickup cp = new CoinsPickup(knight);
@@ -148,3 +99,4 @@ public class GameWorld extends World {
     }
 }
 
+//make a class for platforms, so it can be called with fewer lines//

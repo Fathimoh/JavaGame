@@ -9,8 +9,7 @@ import javax.swing.*;
 public class GameView extends UserView {
     private final Image background;
     private final Image Coin;
-    private Knight knight;
-    private Font font;
+    private final Knight knight;
     private final Image Skull;
     private final Image Heart;
 
@@ -31,6 +30,7 @@ public class GameView extends UserView {
 
     @Override
     protected void paintForeground(Graphics2D g) {
+        Font font;
         try{
             //Calls out the font file saved in data//
             InputStream f = new FileInputStream("data/PixelFont.ttf");

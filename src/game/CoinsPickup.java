@@ -4,7 +4,7 @@ import city.cs.engine.CollisionEvent;
 import city.cs.engine.CollisionListener;
 
 public class CoinsPickup implements CollisionListener {
-    private Knight knight;
+    private final Knight knight;
 
     public CoinsPickup(Knight k) {
         knight = k;

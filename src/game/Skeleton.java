@@ -17,8 +17,7 @@ public class Skeleton extends Walker implements StepListener {
 
     private final int SPEED = 2;
     private float left,right;
-    private final int RANGE = 1;
-    private int health = 1;
+    //private final int health = 1;
 
 
     public Skeleton(World world){
@@ -29,12 +28,14 @@ public class Skeleton extends Walker implements StepListener {
         //this.setAlwaysOutline(true);
     }
 
-    public void DecreaseSkeletonHealth(){
+   /* public void DecreaseSkeletonHealth(){
         health -= 1;
         System.out.println("Skeleton Health: "+ health);
     }
+    */
 
     public void setPosition(Vec2 position){
+        int RANGE = 1;
         super.setPosition(position);
         left = position.x-RANGE;
         right = position.x+RANGE;

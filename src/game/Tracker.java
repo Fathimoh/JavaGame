@@ -5,8 +5,8 @@ import city.cs.engine.StepListener;
 import org.jbox2d.common.Vec2;
 
 public class Tracker implements StepListener {
-    private GameView view;
-    private Knight knight;
+    private final GameView view;
+    private final Knight knight;
     public Tracker(GameView view, Knight knight) {
         this.view = view;
         this.knight = knight;

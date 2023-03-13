@@ -18,5 +18,9 @@ public class ProjectileImpact implements CollisionListener {
             collisionEvent.getOtherBody().destroy();
             collisionEvent.getReportingBody().destroy();
         }
+
+        if(collisionEvent.getOtherBody() instanceof Platform || collisionEvent.getOtherBody() instanceof Coins){
+            collisionEvent.getReportingBody().destroy();
+        }
     }
 }

@@ -14,9 +14,9 @@ public class Knight extends Walker {
 
     private static final BodyImage image = new BodyImage("data/IdleRight.gif", 4f);
 
-    private int coins = 0;
+    private int coins;
     private int SkeletonCounter = 0;
-    private int health = 1;
+    private int health = 3;
 
 
     public Knight(World world){
@@ -52,16 +52,15 @@ public class Knight extends Walker {
 
     public int getSkeletons(){
         return SkeletonCounter;
-    };
+    }
     public void setSkeleton(int SkeletonCounter){
         this.SkeletonCounter = SkeletonCounter;
         //System.out.println("Skeleton killed: " + SkeletonCounter);
     }
 }
 
-
 /*what's left:
-- icons next to stats
-- projectiles need to disappear after a certain amount of time
-- Use of timers
+- projectiles need to disappear after a certain amount of time / Use of timers
+- Game over screen
+
  */
