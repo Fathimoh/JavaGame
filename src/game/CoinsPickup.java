@@ -2,18 +2,34 @@ package game;
 
 import city.cs.engine.CollisionEvent;
 import city.cs.engine.CollisionListener;
+import city.cs.engine.SoundClip;
+
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
+import java.io.IOException;
 
 public class CoinsPickup implements CollisionListener {
     private final Knight knight;
+    private static SoundClip coinSound;
 
     public CoinsPickup(Knight k) {
         knight = k;
+    }
+
+    //sound effect when collecting coins
+    static{
+        try{
+            coinSound = new SoundClip("data/coinSound.wav");
+        } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e){
+            System.out.println(e);
+        }
     }
 
     @Override
     public void collide(CollisionEvent collisionEvent) {
         if (collisionEvent.getOtherBody() instanceof Coins) {
             knight.addCoins();
+            coinSound.play();
             collisionEvent.getOtherBody().destroy(); //removes the coins//
         }
     }

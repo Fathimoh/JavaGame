@@ -7,7 +7,7 @@ public class GameWorld extends World {
     private final Knight knight;
 
     public GameWorld() {
-        super();
+        super(60);
 
         // Create the knight character and position it
         knight = new Knight(this);

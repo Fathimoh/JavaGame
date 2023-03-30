@@ -2,9 +2,8 @@ package game;
 
 import city.cs.engine.*;
 
-public class Coins extends StaticBody {
+public class Coins extends DynamicBody {
     private static final Shape coinShape = new BoxShape(0.8f,0.8f);
-
     private static final BodyImage image =
             new BodyImage("data/Coin.gif", 1.5f);
 

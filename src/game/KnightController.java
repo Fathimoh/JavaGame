@@ -57,7 +57,7 @@ public class KnightController implements KeyListener {
             BodyImage image1 = new BodyImage("data/RunLeft.gif", 4f);
             knight.removeAllImages();
             knight.addImage(image1);
-            knight.startWalking(-7f);
+            knight.startWalking(-9f);
             isLeft = true;
             isRight = false;    
 
@@ -65,7 +65,7 @@ public class KnightController implements KeyListener {
             BodyImage image2 = new BodyImage("data/RunRight.gif", 4f);
             knight.removeAllImages();
             knight.addImage(image2);
-            knight.startWalking(7f);
+            knight.startWalking(9f);
             isRight = true;
             isLeft = false;
 

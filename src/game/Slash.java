@@ -44,7 +44,7 @@ public class Slash extends DynamicBody {
             projectile.setLinearVelocity(new Vec2(-projectileSpeed, 0));
             projectile.addImage(imageLeft);
         }
-        projectile.setAlwaysOutline(true);
+        //projectile.setAlwaysOutline(true);
 
     }
 }

@@ -1,14 +1,17 @@
 package game;
 
 import city.cs.engine.DebugViewer;
+import city.cs.engine.SoundClip;
 
 import javax.swing.JFrame;
-
+import java.io.IOException;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 /**
  * Your main game entry point
  */
 public class Game {
-
+private SoundClip gameMusic;
 
     /** Initialise a new Game. */
     public Game() {
@@ -20,6 +23,16 @@ public class Game {
         GameView view = new GameView(world, 1424, 600, world.getKnight());
         KnightController kc = new KnightController(world.getKnight());
         view.addKeyListener(kc);
+
+        //create background sound for the game
+        try {
+            gameMusic = new SoundClip("data/backgroundMusic.wav"); //add sound file here
+            gameMusic.loop();
+        } catch (UnsupportedAudioFileException|IOException|LineUnavailableException e) {
+            //code in here will deal with any errors
+            //that might occur while loading/playing sound
+            System.out.println(e);
+        }
 
         //create a Java window (frame) and add the game
         final JFrame frame = new JFrame("Journey of the Knight");
