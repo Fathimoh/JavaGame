@@ -19,6 +19,7 @@ public class ProjectileImpact implements CollisionListener {
     static{
         try{
             skeletonDeath = new SoundClip("data/skeletonDeath.wav");
+            skeletonDeath.setVolume(0.2);
         } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e){
             System.out.println(e);
         }

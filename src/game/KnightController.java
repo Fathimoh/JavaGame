@@ -6,7 +6,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 public class KnightController implements KeyListener {
-    private final Knight knight;
+    private Knight knight;
 
     private boolean isRight;
     private boolean isLeft;
@@ -57,7 +57,7 @@ public class KnightController implements KeyListener {
             BodyImage image1 = new BodyImage("data/RunLeft.gif", 4f);
             knight.removeAllImages();
             knight.addImage(image1);
-            knight.startWalking(-9f);
+            knight.startWalking(-13f);
             isLeft = true;
             isRight = false;    
 
@@ -65,7 +65,7 @@ public class KnightController implements KeyListener {
             BodyImage image2 = new BodyImage("data/RunRight.gif", 4f);
             knight.removeAllImages();
             knight.addImage(image2);
-            knight.startWalking(9f);
+            knight.startWalking(13f);
             isRight = true;
             isLeft = false;
 
@@ -127,5 +127,9 @@ public class KnightController implements KeyListener {
 
     public boolean isLeft() {
         return isLeft;
+    }
+
+    public void updateKnight(Knight knight) {
+        this.knight = knight;
     }
 }

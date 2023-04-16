@@ -13,7 +13,7 @@ public class GameView extends UserView {
     private final Image Skull;
     private final Image Heart;
 
-    public GameView(GameWorld world, int width, int height, Knight knight) {
+    public GameView(GameLevel world, int width, int height, Knight knight) {
         super(world, width, height);
         this.background = new ImageIcon("data/BG.png").getImage();
         this.Coin = new ImageIcon("data/StaticCoin.jpg").getImage();

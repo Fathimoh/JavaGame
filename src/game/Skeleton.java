@@ -19,7 +19,6 @@ public class Skeleton extends Walker implements StepListener {
     private float left,right;
     //private final int health = 1;
 
-
     public Skeleton(World world){
         super(world, SkeletonShape);
         addImage(image);

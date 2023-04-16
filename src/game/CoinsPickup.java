@@ -10,16 +10,21 @@ import java.io.IOException;
 
 public class CoinsPickup implements CollisionListener {
     private final Knight knight;
+    private final GameLevel level;
+    private final Game game;
     private static SoundClip coinSound;
 
-    public CoinsPickup(Knight k) {
+    public CoinsPickup(Knight k, GameLevel level, Game game) {
         knight = k;
+        this.game = game;
+        this.level = level;
     }
 
     //sound effect when collecting coins
     static{
         try{
             coinSound = new SoundClip("data/coinSound.wav");
+            coinSound.setVolume(0.1);
         } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e){
             System.out.println(e);
         }
@@ -31,6 +36,9 @@ public class CoinsPickup implements CollisionListener {
             knight.addCoins();
             coinSound.play();
             collisionEvent.getOtherBody().destroy(); //removes the coins//
+            if(level.isComplete()){
+                game.goToNextLevel();
+            }
         }
     }
 }

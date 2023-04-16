@@ -1,21 +1,13 @@
 package game;
 
-import city.cs.engine.*;
+import city.cs.engine.BoxShape;
+import city.cs.engine.Shape;
 import org.jbox2d.common.Vec2;
 
-public class GameWorld extends World {
-    private final Knight knight;
-
-    public GameWorld() {
-        super(60);
-
-        // Create the knight character and position it
-        knight = new Knight(this);
-        knight.setPosition(new Vec2(-34, -13));
-        knight.setGravityScale(2f);
-
-
-        // Make a horizontal platforms in the middle//
+public class Level1 extends GameLevel{
+    public Level1(Game game){
+        super(game);
+        getKnight().setPosition(new Vec2(-34, -13));
         Shape PlatformShape = new BoxShape(3f, 0.5f);
         Shape groundPlatform = new BoxShape(40, 0.5f);
 
@@ -42,7 +34,7 @@ public class GameWorld extends World {
         Platform platformG = new Platform(this, groundPlatform, 0f,-15f, "ground");
 
         //add coins//
-        CoinsPickup cp = new CoinsPickup(knight);
+        CoinsPickup cp = new CoinsPickup(getKnight(), this, game);
         Coins c1 = new Coins(this);
         c1.setPosition(new Vec2(-29f, 0.5f));
         c1.addCollisionListener(cp);
@@ -67,10 +59,9 @@ public class GameWorld extends World {
         c6.setPosition(new Vec2(15f, -9.4f));
         c6.addCollisionListener(cp);
 
-        knight.addCollisionListener(cp);
 
         //add skeleton collisions and skeleton into gameWorld//
-        SkeletonEncounter se = new SkeletonEncounter(knight);
+        SkeletonEncounter se = new SkeletonEncounter(getKnight());
         Skeleton sk = new Skeleton(this);
         sk.setPosition(new Vec2(7f, -2f));
         sk.addCollisionListener(se);
@@ -91,12 +82,15 @@ public class GameWorld extends World {
         sk5.setPosition(new Vec2(-18f, -1.1f));
         sk5.addCollisionListener(se);
 
-        knight.addCollisionListener(se);
-    }
+        getKnight().addCollisionListener(se);
+        getKnight().addCollisionListener(cp);
 
-    public Knight getKnight() {
-        return knight;
+        /* create level specific platforms, enemies,
+           pickups, collision listeners, etc.*/
+    }
+    @Override
+    public boolean isComplete() {
+        return getKnight().getCoins() == 1;
     }
 }
 
-//make a class for platforms, so it can be called with fewer lines//
