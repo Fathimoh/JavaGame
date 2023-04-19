@@ -22,24 +22,16 @@ public class Knight extends Walker {
     public Knight(World world){
         super(world, KnightShape);
         addImage(image);
-        coins = 0;
+        this.setGravityScale(2f);
         //this.setAlwaysOutline(true);
     }
 
     public void DecreaseKnightHealth(){
         health -= 1;
-        //System.out.println("Knight Health: "+ health);
-        if(health <= 0){
-            System.out.println("Game over");
-        }
     }
 
     public int getHealth(){
         return health;
-    }
-
-    public void setCoins(int coins){
-        this.coins = coins;
     }
 
     public int getCoins(){
@@ -47,7 +39,11 @@ public class Knight extends Walker {
     }
 
     public void addCoins(){
-        setCoins(getCoins() +1);
+        coins ++;
+    }
+
+    public void setCoins(int coins){
+        this.coins = coins;
     }
 
     public int getSkeletons(){
@@ -55,7 +51,7 @@ public class Knight extends Walker {
     }
     public void setSkeleton(int SkeletonCounter){
         this.SkeletonCounter = SkeletonCounter;
-        //System.out.println("Skeleton killed: " + SkeletonCounter);
+        System.out.println("Skeleton killed: " + SkeletonCounter);
     }
 }
 

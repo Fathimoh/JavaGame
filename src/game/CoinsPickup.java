@@ -34,10 +34,12 @@ public class CoinsPickup implements CollisionListener {
     public void collide(CollisionEvent collisionEvent) {
         if (collisionEvent.getOtherBody() instanceof Coins) {
             knight.addCoins();
+            //System.out.println(knight);
+            System.out.println(knight.getCoins());
             coinSound.play();
             collisionEvent.getOtherBody().destroy(); //removes the coins//
             if(level.isComplete()){
-                game.goToNextLevel();
+                game.goToNextLevel();//
             }
         }
     }

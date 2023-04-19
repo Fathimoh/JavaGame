@@ -12,13 +12,11 @@ public class Slash extends DynamicBody {
     private static final BodyImage imageRight = new BodyImage("data/ProjectileSlashRight.png", 3f);
     private static final BodyImage imageLeft = new BodyImage("data/ProjectileSlashLeft.png", 3f);
 
-    private final Knight knight;
+    private Knight knight;
 
     private final KnightController controller;
 
     private DynamicBody projectile;
-
-    private Timer timer;
 
 
     public Slash(World world, Knight knight, KnightController controller) {
@@ -46,6 +44,10 @@ public class Slash extends DynamicBody {
         }
         //projectile.setAlwaysOutline(true);
 
+    }
+
+    public void updateKnight(Knight knight){
+        this.knight = knight;
     }
 }
 

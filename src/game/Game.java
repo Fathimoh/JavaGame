@@ -67,11 +67,14 @@ public class Game {
 
     public void goToNextLevel(){
         if (level instanceof Level1){
+            int coins = level.getKnight().getCoins();
             level.stop();
             level = new Level2(this);
             //level now refer to the new level
             view.setWorld(level);
             controller.updateKnight(level.getKnight());
+            level.getKnight().setCoins(coins);
+            view.updateKnight(level.getKnight()); //even level 1? no level 1 is fine
             level.start();
         }
         else if (level instanceof Level2){

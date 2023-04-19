@@ -12,29 +12,25 @@ public class Level1 extends GameLevel{
         Shape groundPlatform = new BoxShape(40, 0.5f);
 
         Platform platform2 = new Platform(this, PlatformShape, -5f,-6.5f);
-
         Platform platform3 = new Platform(this, PlatformShape, -6f,3.5f);
-
-        // Make platforms on the left//
         Platform platform1 = new Platform(this,PlatformShape, -14,-11);
-
         Platform platform4 = new Platform(this,PlatformShape,-19f,-4);
-
         Platform platform5 = new Platform(this, PlatformShape,-29f,-1f);
-
         Platform platform6 = new Platform(this,PlatformShape, -18f,3.5f);
-
         Platform platform7 = new Platform(this,PlatformShape, 6f,-5f);
-
         Platform platform8 = new Platform(this,PlatformShape, 15f,-11f);
-
         Platform platform9 = new Platform(this, PlatformShape, 7f,3.5f);
-
         // Make a ground platform//
         Platform platformG = new Platform(this, groundPlatform, 0f,-15f, "ground");
 
         //add coins//
         CoinsPickup cp = new CoinsPickup(getKnight(), this, game);
+
+        Coins c0 = new Coins(this);
+        c0.setPosition(new Vec2(-30f, -10f));
+        c0.addCollisionListener(cp);
+
+
         Coins c1 = new Coins(this);
         c1.setPosition(new Vec2(-29f, 0.5f));
         c1.addCollisionListener(cp);

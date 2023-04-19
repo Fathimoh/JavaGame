@@ -9,7 +9,7 @@ import javax.swing.*;
 public class GameView extends UserView {
     private final Image background;
     private final Image Coin;
-    private final Knight knight;
+    private Knight knight;
     private final Image Skull;
     private final Image Heart;
 
@@ -63,6 +63,10 @@ public class GameView extends UserView {
         g.drawImage(Skull, 120, 40, Width, Height, this);
         g.drawImage(Heart, 148, 82, Width, Height, this);
 
+    }
+
+    public void updateKnight(Knight knight){
+        this.knight = knight;
     }
 }
 

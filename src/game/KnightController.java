@@ -130,6 +130,7 @@ public class KnightController implements KeyListener {
     }
 
     public void updateKnight(Knight knight) {
+        this.attack.updateKnight(knight);
         this.knight = knight;
     }
 }
