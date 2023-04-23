@@ -51,7 +51,6 @@ public class Knight extends Walker {
     }
     public void setSkeleton(int SkeletonCounter){
         this.SkeletonCounter = SkeletonCounter;
-        System.out.println("Skeleton killed: " + SkeletonCounter);
     }
 }
 

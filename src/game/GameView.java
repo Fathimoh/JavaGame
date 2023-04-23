@@ -1,4 +1,5 @@
 package game;
+import GameLevels.GameLevel;
 import city.cs.engine.*;
 
 import java.awt.*;
@@ -59,7 +60,7 @@ public class GameView extends UserView {
         //draw images next to the statistics//
         int Width = 25;
         int Height = 22;
-        g.drawImage(Coin, 135, 4, Width, Height, this);
+        g.drawImage(Coin, 141, 4, Width, Height, this);
         g.drawImage(Skull, 120, 40, Width, Height, this);
         g.drawImage(Heart, 148, 82, Width, Height, this);
 

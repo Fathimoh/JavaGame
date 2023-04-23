@@ -1,8 +1,11 @@
-package game;
+package Objects;
 
 import city.cs.engine.CollisionEvent;
 import city.cs.engine.CollisionListener;
 import city.cs.engine.SoundClip;
+import game.Game;
+import GameLevels.GameLevel;
+import game.Knight;
 
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
@@ -34,10 +37,9 @@ public class CoinsPickup implements CollisionListener {
     public void collide(CollisionEvent collisionEvent) {
         if (collisionEvent.getOtherBody() instanceof Coins) {
             knight.addCoins();
-            //System.out.println(knight);
             System.out.println(knight.getCoins());
             coinSound.play();
-            collisionEvent.getOtherBody().destroy(); //removes the coins//
+            collisionEvent.getOtherBody().destroy();
             if(level.isComplete()){
                 game.goToNextLevel();//
             }

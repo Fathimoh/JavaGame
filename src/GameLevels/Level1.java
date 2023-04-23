@@ -1,10 +1,14 @@
-package game;
+package GameLevels;
 
+import Objects.Coins;
+import Objects.CoinsPickup;
+import Objects.Platform;
 import city.cs.engine.BoxShape;
 import city.cs.engine.Shape;
+import game.*;
 import org.jbox2d.common.Vec2;
 
-public class Level1 extends GameLevel{
+public class Level1 extends GameLevel {
     public Level1(Game game){
         super(game);
         getKnight().setPosition(new Vec2(-34, -13));
@@ -27,9 +31,8 @@ public class Level1 extends GameLevel{
         CoinsPickup cp = new CoinsPickup(getKnight(), this, game);
 
         Coins c0 = new Coins(this);
-        c0.setPosition(new Vec2(-30f, -10f));
+        c0.setPosition(new Vec2(-30f, -11f));
         c0.addCollisionListener(cp);
-
 
         Coins c1 = new Coins(this);
         c1.setPosition(new Vec2(-29f, 0.5f));

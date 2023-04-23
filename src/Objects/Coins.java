@@ -1,4 +1,4 @@
-package game;
+package Objects;
 
 import city.cs.engine.*;
 

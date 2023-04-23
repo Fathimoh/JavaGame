@@ -1,7 +1,11 @@
-package game;
+package GameLevels;
 
+import Objects.Coins;
+import Objects.CoinsPickup;
+import Objects.Platform;
 import city.cs.engine.BoxShape;
 import city.cs.engine.Shape;
+import game.*;
 import org.jbox2d.common.Vec2;
 
 public class Level2 extends GameLevel {
@@ -88,7 +92,7 @@ public class Level2 extends GameLevel {
 
     @Override
     public boolean isComplete() {
-        if (getKnight().getCoins() == 12)
+        if (getKnight().getCoins() == 2)
             return true;
         else return false;
     }

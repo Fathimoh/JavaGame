@@ -1,5 +1,7 @@
 package game;
 
+import Objects.Coins;
+import Objects.Platform;
 import city.cs.engine.CollisionEvent;
 import city.cs.engine.CollisionListener;
 import city.cs.engine.SoundClip;

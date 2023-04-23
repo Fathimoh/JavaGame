@@ -1,14 +1,15 @@
 package game;
 
-import city.cs.engine.DebugViewer;
+import GameLevels.GameLevel;
+import GameLevels.Level1;
+import GameLevels.Level2;
+import GameLevels.Level3;
 import city.cs.engine.SoundClip;
-import city.cs.engine.World;
 
 import javax.swing.*;
 import java.io.IOException;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
-import javax.swing.border.Border;
 
 /**
  * Your main game entry point
@@ -74,10 +75,22 @@ public class Game {
             view.setWorld(level);
             controller.updateKnight(level.getKnight());
             level.getKnight().setCoins(coins);
-            view.updateKnight(level.getKnight()); //even level 1? no level 1 is fine
+            view.updateKnight(level.getKnight()); //
             level.start();
         }
-        else if (level instanceof Level2){
+
+        else if(level instanceof Level2){
+            int coins = level.getKnight().getCoins();
+            level.stop();
+            level = new Level3(this);
+            view.setWorld(level);
+            controller.updateKnight(level.getKnight());
+            level.getKnight().setCoins(coins);
+            view.updateKnight(level.getKnight()); //
+            level.start();
+        }
+
+        else if (level instanceof Level3){
             System.out.println("Well done! Game complete.");
             System.exit(0);
         }

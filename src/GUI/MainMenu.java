@@ -1,4 +1,6 @@
-package game;
+package GUI;
+import GUI.ControlPanel;
+
 import javax.swing.*;
 
 public class MainMenu {

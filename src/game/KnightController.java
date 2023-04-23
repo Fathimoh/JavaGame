@@ -50,8 +50,6 @@ public class KnightController implements KeyListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
-        //System.out.println("Key pressed " + e.getKeyChar());
-
         int code = e.getKeyCode();
         if (code == KeyEvent.VK_A) {
             BodyImage image1 = new BodyImage("data/RunLeft.gif", 4f);

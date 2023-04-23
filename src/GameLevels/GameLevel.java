@@ -1,7 +1,9 @@
-package game;
+package GameLevels;
 
 
 import city.cs.engine.World;
+import game.Game;
+import game.Knight;
 
 import javax.swing.*;
 
