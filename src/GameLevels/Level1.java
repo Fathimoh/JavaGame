@@ -29,11 +29,6 @@ public class Level1 extends GameLevel {
 
         //add coins//
         CoinsPickup cp = new CoinsPickup(getKnight(), this, game);
-
-        Coins c0 = new Coins(this);
-        c0.setPosition(new Vec2(-30f, -11f));
-        c0.addCollisionListener(cp);
-
         Coins c1 = new Coins(this);
         c1.setPosition(new Vec2(-29f, 0.5f));
         c1.addCollisionListener(cp);
@@ -89,7 +84,7 @@ public class Level1 extends GameLevel {
     }
     @Override
     public boolean isComplete() {
-        return getKnight().getCoins() == 1;
+        return getKnight().getCoins() == 6;
     }
 }
 

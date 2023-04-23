@@ -92,7 +92,7 @@ public class Level2 extends GameLevel {
 
     @Override
     public boolean isComplete() {
-        if (getKnight().getCoins() == 2)
+        if (getKnight().getCoins() == 12)
             return true;
         else return false;
     }
