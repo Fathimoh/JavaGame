@@ -1,53 +1,60 @@
 package game;
 
+import GameLevels.GameLevel;
+import GameLevels.Level1;
+import GameLevels.Level2;
 import city.cs.engine.*;
 import org.jbox2d.common.Vec2;
-import javax.swing.Timer;
-
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class Slash extends DynamicBody {
 
-    private static final BodyImage imageRight = new BodyImage("data/ProjectileSlashRight.png", 3f);
-    private static final BodyImage imageLeft = new BodyImage("data/ProjectileSlashLeft.png", 3f);
+    private static final BodyImage NormalSlashRight = new BodyImage("data/ProjectileSlashRight.png", 3f);
+    private static final BodyImage FlameSlashRight = new BodyImage("data/ProjectileFlameSlashRight.png", 3f);
+    private static final BodyImage NormalSlashLeft = new BodyImage("data/ProjectileSlashLeft.png", 3f);
+    private static final BodyImage FlameSlashLeft = new BodyImage("data/ProjectileFlameSlashLeft.png", 3f);
+
+    private final Shape shape = new BoxShape(0.8f, 1.4f);
 
     private Knight knight;
 
-    private final KnightController controller;
+    private KnightController controller;
 
-    private DynamicBody projectile;
+    private GameLevel level;
 
-
-    public Slash(World world, Knight knight, KnightController controller) {
+    public Slash(World world, Knight knight, String direction) {
         super(world);
         this.knight = knight;
-        this.controller = controller;
-    }
 
-    public void hit(){
+        Fixture GhostlyFixture = new GhostlyFixture(this, shape);
+        Sensor senor = new ProjectileSensor(this, shape, knight);
+
         int projectileSpeed = 20;
-        projectile = new DynamicBody(knight.getWorld(), new BoxShape(0.8f, 1.4f));
-        ProjectileImpact impact = new ProjectileImpact(knight);
-        projectile.addCollisionListener(impact);
-
-        if(controller.isRight()){
-            projectile.setGravityScale(0);
-            projectile.setPosition(new Vec2(knight.getPosition().x+3, knight.getPosition().y));
-            projectile.setLinearVelocity(new Vec2(projectileSpeed, 0));
-            projectile.addImage(imageRight);
-        } if(controller.isLeft()){
-            projectile.setGravityScale(0);
-            projectile.setPosition(new Vec2(knight.getPosition().x-3, knight.getPosition().y));
-            projectile.setLinearVelocity(new Vec2(-projectileSpeed, 0));
-            projectile.addImage(imageLeft);
+        this.setGravityScale(0);
+        if (direction.equals("right")) {
+            if (knight.getWorld() instanceof Level1) {
+                this.addImage(NormalSlashRight);
+            } else if (knight.getWorld() instanceof Level2) {
+                this.addImage(FlameSlashRight);
+            }
+            this.setPosition(new Vec2(knight.getPosition().x + 3, knight.getPosition().y));
+            this.setLinearVelocity(new Vec2(projectileSpeed, 0));
+        } else if (direction.equals("left")) {
+            if (knight.getWorld() instanceof Level1) {
+                this.addImage(NormalSlashLeft);
+            }
+            if (knight.getWorld() instanceof Level2) {
+                this.addImage(FlameSlashLeft);
+            }
+            this.setPosition(new Vec2(knight.getPosition().x - 3, knight.getPosition().y));
+            this.setLinearVelocity(new Vec2(-projectileSpeed, 0));
         }
-        //projectile.setAlwaysOutline(true);
-
     }
 
     public void updateKnight(Knight knight){
         this.knight = knight;
+    }
+    public KnightController getController() {
+        return controller;
     }
 }
 

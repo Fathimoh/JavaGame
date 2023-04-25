@@ -42,37 +42,21 @@ public class Game {
         // finally, make the frame visible
         frame.setVisible(true);
 
-        //optional: uncomment this to make a debugging view
         // JFrame debugView = new DebugViewer(world, 500, 500);
 
         level.start();
-
-
-        //Use encapsulated gameWorld instead of a normal world//
-        //create background sound for the game
-
-        try {
-            SoundClip gameMusic = new SoundClip("data/backgroundMusic.wav"); //add sound file here
-            gameMusic.loop();
-            gameMusic.setVolume(0.1);
-        } catch (UnsupportedAudioFileException|IOException|LineUnavailableException e) {
-            //code in here will deal with any errors
-            //that might occur while loading/playing sound
-            System.out.println(e);
-        }
-
-        // start our game world simulation!
-        //Tracker tracker = new Tracker(view, world.getKnight());
-        //world.addStepListener(tracker);
     }
 
     public void goToNextLevel(){
         if (level instanceof Level1){
             int coins = level.getKnight().getCoins();
             level.stop();
+            level.endMusicBackground();
+            //then repeat for all levels
             level = new Level2(this);
             //level now refer to the new level
             view.setWorld(level);
+            view.update(level);
             controller.updateKnight(level.getKnight());
             level.getKnight().setCoins(coins);
             view.updateKnight(level.getKnight()); //
@@ -82,6 +66,7 @@ public class Game {
         else if(level instanceof Level2){
             int coins = level.getKnight().getCoins();
             level.stop();
+            level.endMusicBackground();
             level = new Level3(this);
             view.setWorld(level);
             controller.updateKnight(level.getKnight());

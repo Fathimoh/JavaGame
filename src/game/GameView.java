@@ -1,5 +1,7 @@
 package game;
 import GameLevels.GameLevel;
+import GameLevels.Level1;
+import GameLevels.Level2;
 import city.cs.engine.*;
 
 import java.awt.*;
@@ -8,25 +10,36 @@ import java.io.InputStream;
 import javax.swing.*;
 
 public class GameView extends UserView {
-    private final Image background;
+    private final Image backgroundLVL1;
+    private final Image backgroundLVL2;
     private final Image Coin;
     private Knight knight;
     private final Image Skull;
     private final Image Heart;
+    private final Image beetle;
+    private GameLevel level;
 
     public GameView(GameLevel world, int width, int height, Knight knight) {
         super(world, width, height);
-        this.background = new ImageIcon("data/BG.png").getImage();
+        this.backgroundLVL1 = new ImageIcon("data/BG.png").getImage();
+        this.backgroundLVL2 = new ImageIcon("data/DungeonBackground.jpg").getImage();
         this.Coin = new ImageIcon("data/StaticCoin.jpg").getImage();
         this.Skull = new ImageIcon("data/Skull.jpg").getImage();
         this.Heart = new ImageIcon("data/Heart.jpg").getImage();
+        this.beetle = new ImageIcon("data/beetleImage.png").getImage();
         this.knight = knight;
+        this.level = world;
     }
 
 
     @Override
     protected void paintBackground(Graphics2D g) {
-        g.drawImage(background, 0, 0, this);
+        if (level instanceof Level1) {
+            g.drawImage(backgroundLVL1, 0, 0, this);
+        }
+        if(level instanceof Level2){
+            g.drawImage(backgroundLVL2, 0, 0, this);
+        }
     }
 
     @Override
@@ -50,24 +63,32 @@ public class GameView extends UserView {
         g.drawString(CoinsCollected,9, 43);
 
         //Skeleton kills displays//
-        String Kills = "Kills: " + knight.getSkeletons();
-        g.drawString(Kills, 9, 80);
+        String SkeletonKills = "Kills: " + knight.getSkeletons();
+        g.drawString(SkeletonKills, 9, 75);
 
         //Displays the health count//
         String Lives = "Health: " + knight.getHealth();
-        g.drawString(Lives, 9, 120);
+        g.drawString(Lives, 9, 110);
+
+        //displays beetle kills//
+        String BeetleKills = "Kills: " + knight.getBeetle();
+        g.drawString(BeetleKills, 9, 145);
 
         //draw images next to the statistics//
         int Width = 25;
         int Height = 22;
-        g.drawImage(Coin, 141, 4, Width, Height, this);
-        g.drawImage(Skull, 120, 40, Width, Height, this);
-        g.drawImage(Heart, 148, 82, Width, Height, this);
-
+        g.drawImage(Coin, 141, 5, Width, Height, this);
+        g.drawImage(Skull, 110, 35, Width, Height, this);
+        g.drawImage(Heart, 148, 73, Width, Height, this);
+        g.drawImage(beetle, 110, 100, 35, 35, this);
     }
 
     public void updateKnight(Knight knight){
         this.knight = knight;
+    }
+
+    public void update(GameLevel level){
+        this.level = level;
     }
 }
 

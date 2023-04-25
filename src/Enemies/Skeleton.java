@@ -1,4 +1,4 @@
-package game;
+package Enemies;
 
 import city.cs.engine.*;
 import org.jbox2d.common.Vec2;
@@ -17,7 +17,6 @@ public class Skeleton extends Walker implements StepListener {
 
     private final int SPEED = 2;
     private float left,right;
-    //private final int health = 1;
 
     public Skeleton(World world){
         super(world, SkeletonShape);
@@ -26,12 +25,6 @@ public class Skeleton extends Walker implements StepListener {
         startWalking(SPEED);
         //this.setAlwaysOutline(true);
     }
-
-   /* public void DecreaseSkeletonHealth(){
-        health -= 1;
-        System.out.println("Skeleton Health: "+ health);
-    }
-    */
 
     public void setPosition(Vec2 position){
         int RANGE = 1;

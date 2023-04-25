@@ -1,8 +1,9 @@
-package game;
+package Enemies;
 
 import city.cs.engine.CollisionEvent;
 import city.cs.engine.CollisionListener;
 import city.cs.engine.SoundClip;
+import game.Knight;
 
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
@@ -28,8 +29,6 @@ public class SkeletonEncounter implements CollisionListener {
       }
 
     }
-
-
 
 
     //collision between the knight and the skeleton. Colliding with skeleton will make you die//

@@ -1,19 +1,39 @@
 package GameLevels;
 
+import Enemies.Skeleton;
+import Enemies.SkeletonEncounter;
 import Objects.Coins;
 import Objects.CoinsPickup;
 import Objects.Platform;
 import city.cs.engine.BoxShape;
 import city.cs.engine.Shape;
+import city.cs.engine.SoundClip;
 import game.*;
 import org.jbox2d.common.Vec2;
 
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
+import java.io.IOException;
+
 public class Level1 extends GameLevel {
+    private static SoundClip gameMusic;
+
+    static {
+        try {
+            gameMusic = new SoundClip("data/backgroundMusic.wav");
+            gameMusic.loop();
+            gameMusic.setVolume(0.1);
+        } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
+            System.out.println(e);
+        }
+    }
     public Level1(Game game){
         super(game);
+        gameMusic.play();
         getKnight().setPosition(new Vec2(-34, -13));
         Shape PlatformShape = new BoxShape(3f, 0.5f);
         Shape groundPlatform = new BoxShape(40, 0.5f);
+        //Slash slash = new Slash(getKnight().getWorld(), getKnight(), getController()); destroy the skele
 
         Platform platform2 = new Platform(this, PlatformShape, -5f,-6.5f);
         Platform platform3 = new Platform(this, PlatformShape, -6f,3.5f);
@@ -24,6 +44,7 @@ public class Level1 extends GameLevel {
         Platform platform7 = new Platform(this,PlatformShape, 6f,-5f);
         Platform platform8 = new Platform(this,PlatformShape, 15f,-11f);
         Platform platform9 = new Platform(this, PlatformShape, 7f,3.5f);
+        Platform platform10 = new Platform(this, PlatformShape, 25f,-7f);
         // Make a ground platform//
         Platform platformG = new Platform(this, groundPlatform, 0f,-15f, "ground");
 
@@ -78,13 +99,14 @@ public class Level1 extends GameLevel {
 
         getKnight().addCollisionListener(se);
         getKnight().addCollisionListener(cp);
-
-        /* create level specific platforms, enemies,
-           pickups, collision listeners, etc.*/
     }
     @Override
     public boolean isComplete() {
-        return getKnight().getCoins() == 6;
+        return getKnight().getCoins() == 1;
+    }
+    @Override
+    public void endMusicBackground(){
+        gameMusic.stop();
     }
 }
 

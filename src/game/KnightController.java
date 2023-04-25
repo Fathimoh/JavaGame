@@ -15,7 +15,6 @@ public class KnightController implements KeyListener {
 
     public KnightController(Knight knight) {
         this.knight = knight;
-        this.attack = new Slash(knight.getWorld(), knight, this);
     }
 
     private void setIdleImage() {
@@ -34,13 +33,13 @@ public class KnightController implements KeyListener {
         BodyImage attackImage;
         if (isRight) {
             attackImage = new BodyImage(attackImageFile, 4);
-            knight.removeAllImages();
-            knight.addImage(attackImage);
         } else if (isLeft) {
             attackImage = new BodyImage(attackImageFile, 4);
-            knight.removeAllImages();
-            knight.addImage(attackImage);
+        } else {
+            return;
         }
+        knight.removeAllImages();
+        knight.addImage(attackImage);
     }
 
     @Override
@@ -84,17 +83,16 @@ public class KnightController implements KeyListener {
             }
 
         } else if (code == KeyEvent.VK_LEFT) {
-
             isLeft = true;
             isRight = false;
             setAttackImage(4f, "data/Attack1Left.gif");
-            attack.hit();
+            attack = new Slash(knight.getWorld(), knight, "left");
 
         } else if (code == KeyEvent.VK_RIGHT) {
             isRight = true;
             isLeft = false;
             setAttackImage(4f, "data/Attack2Right.gif");
-            attack.hit();
+            attack = new Slash(knight.getWorld(), knight, "right");
         }
 
 
@@ -113,10 +111,14 @@ public class KnightController implements KeyListener {
             setIdleImage();
 
         } else if (code == KeyEvent.VK_LEFT) {
-            setAttackImage(4f, "data/IdleLeft.gif");
+            isLeft = true;
+            isRight = false;
+            setIdleImage();
 
         } else if (code == KeyEvent.VK_RIGHT) {
-            setAttackImage(4f, "data/IdleRight.gif");
+            isRight = true;
+            isLeft = false;
+            setIdleImage();
         }
     }
     public boolean isRight() {

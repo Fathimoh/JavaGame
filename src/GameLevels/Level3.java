@@ -4,16 +4,34 @@ import Objects.Coins;
 import Objects.CoinsPickup;
 import city.cs.engine.BoxShape;
 import city.cs.engine.Shape;
+import city.cs.engine.SoundClip;
 import game.Game;
 import Objects.Platform;
-import game.Skeleton;
-import game.SkeletonEncounter;
+import Enemies.Skeleton;
+import Enemies.SkeletonEncounter;
 import org.jbox2d.common.Vec2;
+
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
+import java.io.IOException;
 
 public class Level3 extends GameLevel {
 
+    private static SoundClip gameMusic;
+
+    static {
+        try {
+            gameMusic = new SoundClip("data/backgroundMusic.wav");
+            gameMusic.loop();
+            gameMusic.setVolume(0.1);
+        } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
+            System.out.println(e);
+        }
+    }
+
     public Level3(Game game) {
         super(game);
+        gameMusic.play();
         getKnight().setPosition(new Vec2(-34, -13));
         Shape PlatformShape = new BoxShape(3f, 0.5f);
         Shape groundPlatform = new BoxShape(40, 0.5f);
@@ -115,5 +133,10 @@ public class Level3 extends GameLevel {
         if (getKnight().getCoins() == 18)
             return true;
         else return false;
+    }
+
+    @Override
+    public void endMusicBackground(){
+        gameMusic.stop();
     }
 }

@@ -16,6 +16,7 @@ public class Knight extends Walker {
 
     private int coins;
     private int SkeletonCounter = 0;
+    private int BeetleCounter = 0;
     private int health = 3;
 
 
@@ -51,6 +52,12 @@ public class Knight extends Walker {
     }
     public void setSkeleton(int SkeletonCounter){
         this.SkeletonCounter = SkeletonCounter;
+    }
+    public int getBeetle(){
+        return BeetleCounter;
+    }
+    public void setBeetle(int BeetleCounter){
+        this.BeetleCounter = BeetleCounter;
     }
 }
 
