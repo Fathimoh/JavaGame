@@ -42,7 +42,7 @@ public class ProjectileSensorListener implements SensorListener {
     static {
         try {
             vultureDeath = new SoundClip("data/vultureDeath.wav");
-            vultureDeath.setVolume(0.2);
+            vultureDeath.setVolume(0.4);
         } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
             System.out.println(e);
         }

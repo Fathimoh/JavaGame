@@ -4,13 +4,13 @@ import Enemies.Beetle;
 import Enemies.BeetleEncounter;
 import Objects.Coins;
 import Objects.CoinsPickup;
+import Objects.JumpPad;
 import Objects.Platform;
 import city.cs.engine.BoxShape;
 import city.cs.engine.Shape;
 import city.cs.engine.SoundClip;
 import game.*;
 import org.jbox2d.common.Vec2;
-
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 import java.io.IOException;
@@ -35,6 +35,9 @@ public class Level2 extends GameLevel {
         getKnight().setPosition(new Vec2(-34, -13));
         Shape PlatformShape = new BoxShape(3f, 0.5f);
         Shape groundPlatform = new BoxShape(40, 0.5f);
+
+        JumpPad jumpPad = new JumpPad(this);
+        jumpPad.setPosition(new Vec2(21f, -14f));
 
         //Make platforms//
         Platform platform1 = new Platform(this, PlatformShape, -5f,-6.5f, true);
@@ -108,11 +111,12 @@ public class Level2 extends GameLevel {
 
         getKnight().addCollisionListener(be);
         getKnight().addCollisionListener(cp);
+
     }
 
     @Override
     public boolean isComplete() {
-        if (getKnight().getCoins() == 2)
+        if (getKnight().getCoins() == 12)
             return true;
         else return false;
     }

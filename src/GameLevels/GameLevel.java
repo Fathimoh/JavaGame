@@ -1,6 +1,7 @@
 package GameLevels;
 
 
+import Objects.JumpPad;
 import city.cs.engine.World;
 import game.Game;
 import game.Knight;

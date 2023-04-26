@@ -4,13 +4,13 @@ import Enemies.Skeleton;
 import Enemies.SkeletonEncounter;
 import Objects.Coins;
 import Objects.CoinsPickup;
+import Objects.JumpPad;
 import Objects.Platform;
 import city.cs.engine.BoxShape;
 import city.cs.engine.Shape;
 import city.cs.engine.SoundClip;
 import game.*;
 import org.jbox2d.common.Vec2;
-
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 import java.io.IOException;
@@ -33,7 +33,9 @@ public class Level1 extends GameLevel {
         getKnight().setPosition(new Vec2(-34, -13));
         Shape PlatformShape = new BoxShape(3f, 0.5f);
         Shape groundPlatform = new BoxShape(40, 0.5f);
-        //Slash slash = new Slash(getKnight().getWorld(), getKnight(), getController()); destroy the skele
+
+        JumpPad jumpPad = new JumpPad(this, true);
+        jumpPad.setPosition(new Vec2(21f, -13.5f));
 
         Platform platform2 = new Platform(this, PlatformShape, -5f,-6.5f);
         Platform platform3 = new Platform(this, PlatformShape, -6f,3.5f);
@@ -102,7 +104,7 @@ public class Level1 extends GameLevel {
     }
     @Override
     public boolean isComplete() {
-        return getKnight().getCoins() == 1;
+        return getKnight().getCoins() == 6;
     }
     @Override
     public void endMusicBackground(){

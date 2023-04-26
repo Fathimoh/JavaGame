@@ -9,10 +9,7 @@ import city.cs.engine.Shape;
 import city.cs.engine.SoundClip;
 import game.Game;
 import Objects.Platform;
-import Enemies.Skeleton;
-import Enemies.SkeletonEncounter;
 import org.jbox2d.common.Vec2;
-
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 import java.io.IOException;
