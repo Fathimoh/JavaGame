@@ -20,9 +20,9 @@ public class Level1 extends GameLevel {
 
     static {
         try {
-            gameMusic = new SoundClip("data/backgroundMusic.wav");
+            gameMusic = new SoundClip("data/field_theme_1.wav");
             gameMusic.loop();
-            gameMusic.setVolume(0.1);
+            gameMusic.setVolume(1);
         } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
             System.out.println(e);
         }

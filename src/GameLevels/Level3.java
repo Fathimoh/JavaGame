@@ -1,5 +1,7 @@
 package GameLevels;
 
+import Enemies.Vulture;
+import Enemies.VultureEncounter;
 import Objects.Coins;
 import Objects.CoinsPickup;
 import city.cs.engine.BoxShape;
@@ -21,9 +23,9 @@ public class Level3 extends GameLevel {
 
     static {
         try {
-            gameMusic = new SoundClip("data/backgroundMusic.wav");
+            gameMusic = new SoundClip("data/field_theme_2.wav");
             gameMusic.loop();
-            gameMusic.setVolume(0.1);
+            gameMusic.setVolume(1);
         } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
             System.out.println(e);
         }
@@ -37,35 +39,35 @@ public class Level3 extends GameLevel {
         Shape groundPlatform = new BoxShape(40, 0.5f);
 
         //make platforms//
-        Platform platform1 = new Platform(this, PlatformShape, -24f,-11f);
+        Platform platform1 = new Platform(this, PlatformShape, -24f,-11f, 1.1f);
 
-        Platform platform2 = new Platform(this, PlatformShape, -8.5f,-7f);
-        Platform platform3 = new Platform(this, PlatformShape, -14f,-7f);
-        Platform platform4 = new Platform(this, PlatformShape, -3f,-7f);
-        Platform platform5 = new Platform(this, PlatformShape, 2f,-7f);
-        Platform platform6 = new Platform(this, PlatformShape, 7f,-7f);
-        Platform platform7 = new Platform(this, PlatformShape, 12f,-7f);
-        Platform platform8 = new Platform(this, PlatformShape, 17f,-7f);
-        Platform platform9 = new Platform(this, PlatformShape, 22f,-7f);
+        Platform platform2 = new Platform(this, PlatformShape, -8.5f,-7f, 1.1f);
+        Platform platform3 = new Platform(this, PlatformShape, -14f,-7f, 1.1f);
+        Platform platform4 = new Platform(this, PlatformShape, -3f,-7f, 1.1f);
+        Platform platform5 = new Platform(this, PlatformShape, 2f,-7f, 1.1f);
+        Platform platform6 = new Platform(this, PlatformShape, 7f,-7f, 1.1f);
+        Platform platform7 = new Platform(this, PlatformShape, 12f,-7f, 1.1f);
+        Platform platform8 = new Platform(this, PlatformShape, 17f,-7f, 1.1f);
+        Platform platform9 = new Platform(this, PlatformShape, 22f,-7f, 1.1f);
 
-        Platform platform10 = new Platform(this, PlatformShape, 29f,-3f);
-        Platform platform11 = new Platform(this, PlatformShape, 36f,1f);
+        Platform platform10 = new Platform(this, PlatformShape, 29f,-3f, 1.1f);
+        Platform platform11 = new Platform(this, PlatformShape, 36f,1f, 1.1f);
 
-        Platform platform12 = new Platform(this, PlatformShape, 22f,2.5f);
-        Platform platform13 = new Platform(this, PlatformShape, 17f,2.5f);
-        Platform platform14 = new Platform(this, PlatformShape, 12f,2.5f);
-        Platform platform15 = new Platform(this, PlatformShape, 7f,2.5f);
-        Platform platform16 = new Platform(this, PlatformShape, 2f,2.5f);
-        Platform platform17 = new Platform(this, PlatformShape, -3f,2.5f);
-        Platform platform18 = new Platform(this, PlatformShape, -8.5f,2.5f);
-        Platform platform19 = new Platform(this, PlatformShape, -14f,2.5f);
+        Platform platform12 = new Platform(this, PlatformShape, 22f,2.5f, 1.1f);
+        Platform platform13 = new Platform(this, PlatformShape, 17f,2.5f, 1.1f);
+        Platform platform14 = new Platform(this, PlatformShape, 12f,2.5f, 1.1f);
+        Platform platform15 = new Platform(this, PlatformShape, 7f,2.5f, 1.1f);
+        Platform platform16 = new Platform(this, PlatformShape, 2f,2.5f, 1.1f);
+        Platform platform17 = new Platform(this, PlatformShape, -3f,2.5f, 1.1f);
+        Platform platform18 = new Platform(this, PlatformShape, -8.5f,2.5f, 1.1f);
+        Platform platform19 = new Platform(this, PlatformShape, -14f,2.5f, 1.1f);
 
-        Platform platform20 = new Platform(this, PlatformShape, -24f,7f);
-        Platform platform21 = new Platform(this, PlatformShape, -30f,-4f);
+        Platform platform20 = new Platform(this, PlatformShape, -24f,7f, 1.1f);
+        Platform platform21 = new Platform(this, PlatformShape, -30f,-4f, 1.1f);
 
 
         //make ground platform//
-        Platform platformG = new Platform(this, groundPlatform, 0f,-15f, "ground");
+        Platform platformG = new Platform(this, groundPlatform, 0f,-15f, 'b');
 
         //make coins//
         CoinsPickup cp = new CoinsPickup(getKnight(), this, game);
@@ -93,37 +95,37 @@ public class Level3 extends GameLevel {
         c6.setPosition(new Vec2(-30f, -2.7f));
         c6.addCollisionListener(cp);
 
-        //make skeletons//
-        SkeletonEncounter se = new SkeletonEncounter(getKnight());
-        Skeleton sk1 = new Skeleton(this);
-        sk1.setPosition(new Vec2(25f, -12f));
-        sk1.addCollisionListener(se);
+        //make Vultures//
+        VultureEncounter ve = new VultureEncounter(getKnight());
+        Vulture v1 = new Vulture(this);
+        v1.setPosition(new Vec2(25f, -12f));
+        v1.addCollisionListener(ve);
 
-        Skeleton sk2 = new Skeleton(this);
-        sk2.setPosition(new Vec2(-5f, -12f));
-        sk2.addCollisionListener(se);
+        Vulture v2 = new Vulture(this);
+        v2.setPosition(new Vec2(-5f, -12f));
+        v2.addCollisionListener(ve);
 
-        Skeleton sk3 = new Skeleton(this);
-        sk3.setPosition(new Vec2(-6f, -4f));
-        sk3.addCollisionListener(se);
+        Vulture v3 = new Vulture(this);
+        v3.setPosition(new Vec2(-6f, -4f));
+        v3.addCollisionListener(ve);
 
-        Skeleton sk4 = new Skeleton(this);
-        sk4.setPosition(new Vec2(14f, -4f));
-        sk4.addCollisionListener(se);
+        Vulture v4 = new Vulture(this);
+        v4.setPosition(new Vec2(14f, -4f));
+        v4.addCollisionListener(ve);
 
-        Skeleton sk5 = new Skeleton(this);
-        sk5.setPosition(new Vec2(14f, 5f));
-        sk5.addCollisionListener(se);
+        Vulture v5 = new Vulture(this);
+        v5.setPosition(new Vec2(14f, 5f));
+        v5.addCollisionListener(ve);
 
-        Skeleton sk6 = new Skeleton(this);
-        sk6.setPosition(new Vec2(-6f, 5f));
-        sk6.addCollisionListener(se);
+        Vulture v6 = new Vulture(this);
+        v6.setPosition(new Vec2(-6f, 5f));
+        v6.addCollisionListener(ve);
 
-        Skeleton sk7 = new Skeleton(this);
-        sk7.setPosition(new Vec2(11f, -12f));
-        sk7.addCollisionListener(se);
+        Vulture v7 = new Vulture(this);
+        v7.setPosition(new Vec2(11f, -12f));
+        v7.addCollisionListener(ve);
 
-        getKnight().addCollisionListener(se);
+        getKnight().addCollisionListener(ve);
         getKnight().addCollisionListener(cp);
 
     }

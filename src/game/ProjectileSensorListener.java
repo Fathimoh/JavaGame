@@ -2,6 +2,7 @@ package game;
 
 import Enemies.Beetle;
 import Enemies.Skeleton;
+import Enemies.Vulture;
 import Objects.Coins;
 import Objects.Platform;
 import city.cs.engine.SensorEvent;
@@ -37,6 +38,15 @@ public class ProjectileSensorListener implements SensorListener {
             System.out.println(e);
         }
     }
+    private static SoundClip vultureDeath;
+    static {
+        try {
+            vultureDeath = new SoundClip("data/vultureDeath.wav");
+            vultureDeath.setVolume(0.2);
+        } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
+            System.out.println(e);
+        }
+    }
 
     public ProjectileSensorListener(Slash slash, Knight knight) {
         this.slash = slash;
@@ -57,6 +67,11 @@ public class ProjectileSensorListener implements SensorListener {
             beetle.destroy();
             beetleDeath.play();
             knight.setBeetle(knight.getBeetle() + 1);
+        }
+        if(sensorEvent.getContactBody() instanceof Vulture vulture){
+            vulture.destroy();
+            vultureDeath.play();
+            knight.setVulture(knight.getVulture() + 1);
         }
     }
     @Override

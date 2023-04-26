@@ -39,4 +39,20 @@ public class Platform extends StaticBody{
         this.setClipped(true);
     }
 
+    public Platform(World w, Shape shape, float x, float y, float type){
+        super(w, shape);
+        BodyImage image = new BodyImage("data/Tileset/dirt2.png", 2f);
+        this.setPosition(new Vec2(x,y));
+        this.addImage(image);
+        this.setClipped(true);
+    }
+
+    public Platform(World w, Shape shape, float x, float y, char type){
+        super(w, shape);
+        BodyImage image = new BodyImage("data/Tileset/dirtFloor.jpg", 50f);
+        this.setPosition(new Vec2(x,y));
+        this.addImage(image);
+        this.setClipped(true);
+    }
+
 }

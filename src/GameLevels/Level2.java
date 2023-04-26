@@ -2,12 +2,9 @@ package GameLevels;
 
 import Enemies.Beetle;
 import Enemies.BeetleEncounter;
-import Enemies.Skeleton;
-import Enemies.SkeletonEncounter;
 import Objects.Coins;
 import Objects.CoinsPickup;
 import Objects.Platform;
-import city.cs.engine.BodyImage;
 import city.cs.engine.BoxShape;
 import city.cs.engine.Shape;
 import city.cs.engine.SoundClip;
@@ -24,9 +21,9 @@ public class Level2 extends GameLevel {
 
     static {
         try {
-            gameMusic = new SoundClip("data/backgroundMusic.wav");
+            gameMusic = new SoundClip("data/cave_theme_1.wav");
             gameMusic.loop();
-            gameMusic.setVolume(0.1);
+            gameMusic.setVolume(1);
         } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
             System.out.println(e);
         }
@@ -115,7 +112,7 @@ public class Level2 extends GameLevel {
 
     @Override
     public boolean isComplete() {
-        if (getKnight().getCoins() == 12)
+        if (getKnight().getCoins() == 2)
             return true;
         else return false;
     }

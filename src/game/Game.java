@@ -59,7 +59,7 @@ public class Game {
             view.update(level);
             controller.updateKnight(level.getKnight());
             level.getKnight().setCoins(coins);
-            view.updateKnight(level.getKnight()); //
+            view.updateKnight(level.getKnight());
             level.start();
         }
 
@@ -69,13 +69,24 @@ public class Game {
             level.endMusicBackground();
             level = new Level3(this);
             view.setWorld(level);
+            view.update(level);
             controller.updateKnight(level.getKnight());
             level.getKnight().setCoins(coins);
-            view.updateKnight(level.getKnight()); //
+            view.updateKnight(level.getKnight());
             level.start();
         }
 
         else if (level instanceof Level3){
+            int coins = level.getKnight().getCoins();
+            level.stop();
+            level.endMusicBackground();
+            level = new Level3(this);
+            view.setWorld(level);
+            view.update(level);
+            controller.updateKnight(level.getKnight());
+            level.getKnight().setCoins(coins);
+            view.updateKnight(level.getKnight());
+            level.start();
             System.out.println("Well done! Game complete.");
             System.exit(0);
         }
