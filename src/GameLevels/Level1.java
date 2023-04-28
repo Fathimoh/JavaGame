@@ -21,7 +21,6 @@ public class Level1 extends GameLevel {
     static {
         try {
             gameMusic = new SoundClip("data/field_theme_1.wav");
-            gameMusic.loop();
             gameMusic.setVolume(1);
         } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
             System.out.println(e);
@@ -29,7 +28,6 @@ public class Level1 extends GameLevel {
     }
     public Level1(Game game){
         super(game);
-        gameMusic.play();
         getKnight().setPosition(new Vec2(-34, -13));
         Shape PlatformShape = new BoxShape(3f, 0.5f);
         Shape groundPlatform = new BoxShape(40, 0.5f);
@@ -37,18 +35,18 @@ public class Level1 extends GameLevel {
         JumpPad jumpPad = new JumpPad(this, true);
         jumpPad.setPosition(new Vec2(21f, -13.5f));
 
-        Platform platform2 = new Platform(this, PlatformShape, -5f,-6.5f);
-        Platform platform3 = new Platform(this, PlatformShape, -6f,3.5f);
-        Platform platform1 = new Platform(this,PlatformShape, -14,-11);
-        Platform platform4 = new Platform(this,PlatformShape,-19f,-4);
-        Platform platform5 = new Platform(this, PlatformShape,-29f,-1f);
-        Platform platform6 = new Platform(this,PlatformShape, -18f,3.5f);
-        Platform platform7 = new Platform(this,PlatformShape, 6f,-5f);
-        Platform platform8 = new Platform(this,PlatformShape, 15f,-11f);
-        Platform platform9 = new Platform(this, PlatformShape, 7f,3.5f);
-        Platform platform10 = new Platform(this, PlatformShape, 25f,-7f);
+        new Platform(this, PlatformShape, -5f,-6.5f);
+        new Platform(this, PlatformShape, -6f,3.5f);
+        new Platform(this,PlatformShape, -14,-11);
+        new Platform(this,PlatformShape,-19f,-4);
+        new Platform(this, PlatformShape,-29f,-1f);
+        new Platform(this,PlatformShape, -18f,3.5f);
+        new Platform(this,PlatformShape, 6f,-5f);
+        new Platform(this,PlatformShape, 15f,-11f);
+        new Platform(this, PlatformShape, 7f,3.5f);
+        new Platform(this, PlatformShape, 25f,-7f);
         // Make a ground platform//
-        Platform platformG = new Platform(this, groundPlatform, 0f,-15f, "ground");
+        new Platform(this, groundPlatform, 0f,-15f, "ground");
 
         //add coins//
         CoinsPickup cp = new CoinsPickup(getKnight(), this, game);
@@ -104,7 +102,12 @@ public class Level1 extends GameLevel {
     }
     @Override
     public boolean isComplete() {
-        return getKnight().getCoins() == 6;
+        return getKnight().getCoins() == 1;
+    }
+
+    @Override
+    public void playMusicBackground(){
+        gameMusic.loop();
     }
     @Override
     public void endMusicBackground(){

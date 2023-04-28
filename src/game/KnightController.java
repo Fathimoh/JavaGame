@@ -121,13 +121,6 @@ public class KnightController implements KeyListener {
             setIdleImage();
         }
     }
-    public boolean isRight() {
-        return isRight;
-    }
-
-    public boolean isLeft() {
-        return isLeft;
-    }
 
     public void updateKnight(Knight knight) {
         this.attack.updateKnight(knight);

@@ -21,7 +21,9 @@ public class GiveFocus implements MouseListener {
     }
     @Override
     public void mouseEntered(MouseEvent e) {
-        view.requestFocus();
+        if(!view.hasFocus()) {
+            view.requestFocus();
+        }
     }
     @Override
     public void mouseExited(MouseEvent e) {

@@ -25,6 +25,9 @@ public class Knight extends Walker {
         super(world, KnightShape);
         addImage(image);
         this.setGravityScale(2f);
+        SolidFixture fixture = new SolidFixture(this, KnightShape);
+        fixture.setFriction(0);
+
         //this.setAlwaysOutline(true);
     }
 
@@ -69,7 +72,9 @@ public class Knight extends Walker {
 }
 
 /*what's left:
-- projectiles need to disappear after a certain amount of time / Use of timers
-- Game over screen
+
+- menu screen
+- gameover screen
 
  */
+

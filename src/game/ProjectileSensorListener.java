@@ -4,7 +4,6 @@ import Enemies.Beetle;
 import Enemies.Skeleton;
 import Enemies.Vulture;
 import Objects.Coins;
-import Objects.Platform;
 import city.cs.engine.SensorEvent;
 import city.cs.engine.SensorListener;
 import city.cs.engine.SoundClip;

@@ -21,7 +21,6 @@ public class Level3 extends GameLevel {
     static {
         try {
             gameMusic = new SoundClip("data/field_theme_2.wav");
-            gameMusic.loop();
             gameMusic.setVolume(1);
         } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
             System.out.println(e);
@@ -36,35 +35,35 @@ public class Level3 extends GameLevel {
         Shape groundPlatform = new BoxShape(40, 0.5f);
 
         //make platforms//
-        Platform platform1 = new Platform(this, PlatformShape, -24f,-11f, 1.1f);
+        new Platform(this, PlatformShape, -24f,-11f, 1.1f);
 
-        Platform platform2 = new Platform(this, PlatformShape, -8.5f,-7f, 1.1f);
-        Platform platform3 = new Platform(this, PlatformShape, -14f,-7f, 1.1f);
-        Platform platform4 = new Platform(this, PlatformShape, -3f,-7f, 1.1f);
-        Platform platform5 = new Platform(this, PlatformShape, 2f,-7f, 1.1f);
-        Platform platform6 = new Platform(this, PlatformShape, 7f,-7f, 1.1f);
-        Platform platform7 = new Platform(this, PlatformShape, 12f,-7f, 1.1f);
-        Platform platform8 = new Platform(this, PlatformShape, 17f,-7f, 1.1f);
-        Platform platform9 = new Platform(this, PlatformShape, 22f,-7f, 1.1f);
+        new Platform(this, PlatformShape, -8.5f,-7f, 1.1f);
+        new Platform(this, PlatformShape, -14f,-7f, 1.1f);
+        new Platform(this, PlatformShape, -3f,-7f, 1.1f);
+        new Platform(this, PlatformShape, 2f,-7f, 1.1f);
+        new Platform(this, PlatformShape, 7f,-7f, 1.1f);
+        new Platform(this, PlatformShape, 12f,-7f, 1.1f);
+        new Platform(this, PlatformShape, 17f,-7f, 1.1f);
+        new Platform(this, PlatformShape, 22f,-7f, 1.1f);
 
-        Platform platform10 = new Platform(this, PlatformShape, 29f,-3f, 1.1f);
-        Platform platform11 = new Platform(this, PlatformShape, 36f,1f, 1.1f);
+        new Platform(this, PlatformShape, 29f,-3f, 1.1f);
+        new Platform(this, PlatformShape, 36f,1f, 1.1f);
 
-        Platform platform12 = new Platform(this, PlatformShape, 22f,2.5f, 1.1f);
-        Platform platform13 = new Platform(this, PlatformShape, 17f,2.5f, 1.1f);
-        Platform platform14 = new Platform(this, PlatformShape, 12f,2.5f, 1.1f);
-        Platform platform15 = new Platform(this, PlatformShape, 7f,2.5f, 1.1f);
-        Platform platform16 = new Platform(this, PlatformShape, 2f,2.5f, 1.1f);
-        Platform platform17 = new Platform(this, PlatformShape, -3f,2.5f, 1.1f);
-        Platform platform18 = new Platform(this, PlatformShape, -8.5f,2.5f, 1.1f);
-        Platform platform19 = new Platform(this, PlatformShape, -14f,2.5f, 1.1f);
+        new Platform(this, PlatformShape, 22f,2.5f, 1.1f);
+        new Platform(this, PlatformShape, 17f,2.5f, 1.1f);
+        new Platform(this, PlatformShape, 12f,2.5f, 1.1f);
+        new Platform(this, PlatformShape, 7f,2.5f, 1.1f);
+        new Platform(this, PlatformShape, 2f,2.5f, 1.1f);
+        new Platform(this, PlatformShape, -3f,2.5f, 1.1f);
+        new Platform(this, PlatformShape, -8.5f,2.5f, 1.1f);
+        new Platform(this, PlatformShape, -14f,2.5f, 1.1f);
 
-        Platform platform20 = new Platform(this, PlatformShape, -24f,7f, 1.1f);
-        Platform platform21 = new Platform(this, PlatformShape, -30f,-4f, 1.1f);
+        new Platform(this, PlatformShape, -24f,7f, 1.1f);
+        new Platform(this, PlatformShape, -30f,-4f, 1.1f);
 
 
         //make ground platform//
-        Platform platformG = new Platform(this, groundPlatform, 0f,-15f, 'b');
+        new Platform(this, groundPlatform, 0f,-15f, 'b');
 
         //make coins//
         CoinsPickup cp = new CoinsPickup(getKnight(), this, game);
@@ -129,9 +128,14 @@ public class Level3 extends GameLevel {
 
     @Override
     public boolean isComplete() {
-        if (getKnight().getCoins() == 18)
+        if (getKnight().getCoins() == 3)
             return true;
         else return false;
+    }
+
+    @Override
+    public void playMusicBackground() {
+        gameMusic.loop();
     }
 
     @Override

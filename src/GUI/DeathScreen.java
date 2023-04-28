@@ -1,26 +1,25 @@
 package GUI;
 
 import GameLevels.GameLevel;
+import game.Game;
 import game.GameView;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class ControlPanel {
+public class DeathScreen {
     private GameLevel level;
-    private JButton playButton;
+    private JButton playAgainButton;
     public JPanel mainPanel;
     private JButton quitButton;
-    private JButton instructionsButton;
 
-
-    public ControlPanel(JFrame frame, GameLevel level, GameView view){
-        playButton.addActionListener(new ActionListener() {
+    public DeathScreen(JFrame frame, GameLevel level, GameView view, Game game){
+        playAgainButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                level.start();
-                level.playMusicBackground();
+                game.restartLevel();
+                view.setVisible(true);
                 frame.add(view);
                 mainPanel.setVisible(false);
             }
@@ -30,13 +29,6 @@ public class ControlPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.exit(0);
-            }
-        });
-
-        instructionsButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
             }
         });
     }

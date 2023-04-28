@@ -1,12 +1,9 @@
 package GameLevels;
 
-
-import Objects.JumpPad;
 import city.cs.engine.World;
 import game.Game;
 import game.Knight;
 import game.KnightController;
-import game.Slash;
 
 public abstract class GameLevel extends World {
     private Knight knight;
@@ -24,6 +21,8 @@ public abstract class GameLevel extends World {
     }
 
     public abstract boolean isComplete();
+
+    public abstract void playMusicBackground();
 
     public abstract void endMusicBackground();
 }

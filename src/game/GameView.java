@@ -6,6 +6,8 @@ import GameLevels.Level3;
 import city.cs.engine.*;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import javax.swing.*;
@@ -34,6 +36,27 @@ public class GameView extends UserView {
         this.vulture = new ImageIcon("data/v.png").getImage();
         this.knight = knight;
         this.level = world;
+        JCheckBox musicOffCheckBox = new JCheckBox();
+        musicOffCheckBox.setBounds(900, 100, 50, 50);
+        this.add(musicOffCheckBox);
+        GiveFocus giveFocus = new GiveFocus(this);
+        musicOffCheckBox.addMouseListener(giveFocus);
+        musicOffCheckBox.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (musicOffCheckBox.isSelected()) {
+                    level.endMusicBackground();
+                }
+                else{
+                    level.playMusicBackground();
+                }
+            }
+        });
+
+    }
+
+    public void removeView(){
+        this.setVisible(false);
     }
 
 
@@ -86,10 +109,13 @@ public class GameView extends UserView {
         String VultureKills = "kills: " + knight.getVulture();
         g.drawString(VultureKills, 9, 180);
 
+        //display writing for music button//
+        g.drawString("Music off", 530, 40);
+
         //draw images next to the statistics//
         int Width = 25;
         int Height = 22;
-        g.drawImage(Coin, 141, 5, Width, Height, this);
+        g.drawImage(Coin, 143, 5, Width, Height, this);
         g.drawImage(Skull, 110, 35, Width, Height, this);
         g.drawImage(Heart, 148, 73, Width, Height, this);
         g.drawImage(beetle, 110, 100, 35, 35, this);
