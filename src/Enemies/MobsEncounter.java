@@ -1,28 +1,23 @@
 package Enemies;
 
-import GUI.DeathScreen;
-import GameLevels.GameLevel;
 import city.cs.engine.CollisionEvent;
 import city.cs.engine.CollisionListener;
 import city.cs.engine.SoundClip;
-import game.GameView;
+import game.Game;
 import game.Knight;
 
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
-import javax.swing.*;
 import java.io.IOException;
 
 public abstract class MobsEncounter implements CollisionListener {
     private final Knight knight;
     private static SoundClip healthLoss, gameOver;
-    private DeathScreen deathScreen;
-    private GameLevel level;
-    private GameView view;
-    private JFrame frame;
+    private Game game;
 
-    public MobsEncounter(Knight k) {
+    public MobsEncounter(Knight k, Game game) {
         knight = k;
+        this.game = game;
     }
 
     static {
@@ -44,13 +39,9 @@ public abstract class MobsEncounter implements CollisionListener {
             if (knight.getHealth() <= 0) {
                 knight.destroy();
                 gameOver.play();
-                level.stop();
-                view.removeView();
-                frame.add(deathScreen.mainPanel);
-                frame.setVisible(true);
+                game.deathScreen();
+
             }
         }
     }
-
-
 }

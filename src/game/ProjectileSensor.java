@@ -1,6 +1,5 @@
 package game;
 
-import city.cs.engine.Body;
 import city.cs.engine.Sensor;
 import city.cs.engine.Shape;
 

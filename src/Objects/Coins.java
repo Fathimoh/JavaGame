@@ -10,6 +10,5 @@ public class Coins extends DynamicBody {
     public Coins(World world) {
         super(world, coinShape);
         addImage(image);
-        //this.setAlwaysOutline(true);
     }
 }

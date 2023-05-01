@@ -1,6 +1,5 @@
 package game;
 
-import GameLevels.GameLevel;
 import GameLevels.Level1;
 import GameLevels.Level2;
 import GameLevels.Level3;
@@ -17,20 +16,12 @@ public class Slash extends DynamicBody {
     private static final BodyImage WaterSlashLeft = new BodyImage("data/ProjectileWaterSlashLeft.png", 3f);
 
 
-    private final Shape shape = new BoxShape(0.8f, 1.4f);
-
-    private Knight knight;
-
-    private KnightController controller;
-
-    private GameLevel level;
-
     public Slash(World world, Knight knight, String direction) {
         super(world);
-        this.knight = knight;
 
-        Fixture GhostlyFixture = new GhostlyFixture(this, shape);
-        Sensor senor = new ProjectileSensor(this, shape, knight);
+        Shape shape = new BoxShape(0.8f, 1.4f);
+        new GhostlyFixture(this, shape);
+        new ProjectileSensor(this, shape, knight);
 
         int projectileSpeed = 20;
         this.setGravityScale(0);
@@ -57,13 +48,6 @@ public class Slash extends DynamicBody {
             this.setPosition(new Vec2(knight.getPosition().x - 3, knight.getPosition().y));
             this.setLinearVelocity(new Vec2(-projectileSpeed, 0));
         }
-    }
-
-    public void updateKnight(Knight knight){
-        this.knight = knight;
-    }
-    public KnightController getController() {
-        return controller;
     }
 }
 

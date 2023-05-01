@@ -1,5 +1,6 @@
 package GameLevels;
 
+import Enemies.MobsEncounter;
 import Enemies.Skeleton;
 import Enemies.SkeletonEncounter;
 import Objects.Coins;
@@ -17,6 +18,8 @@ import java.io.IOException;
 
 public class Level1 extends GameLevel {
     private static SoundClip gameMusic;
+
+    private GameView view;
 
     static {
         try {
@@ -76,7 +79,7 @@ public class Level1 extends GameLevel {
 
 
         //add skeleton collisions and skeleton into gameWorld//
-        SkeletonEncounter se = new SkeletonEncounter(getKnight());
+        SkeletonEncounter se = new SkeletonEncounter(getKnight(), game);
         Skeleton sk = new Skeleton(this);
         sk.setPosition(new Vec2(7f, -2f));
         sk.addCollisionListener(se);
@@ -102,7 +105,7 @@ public class Level1 extends GameLevel {
     }
     @Override
     public boolean isComplete() {
-        return getKnight().getCoins() == 1;
+        return getKnight().getCoins() == 6;
     }
 
     @Override
@@ -112,6 +115,11 @@ public class Level1 extends GameLevel {
     @Override
     public void endMusicBackground(){
         gameMusic.stop();
+    }
+
+    @Override
+    public void updateView(GameView view) {
+        this.view = view;
     }
 }
 

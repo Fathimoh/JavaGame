@@ -2,7 +2,6 @@ package Objects;
 
 import city.cs.engine.*;
 import game.Knight;
-
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 import java.io.IOException;
@@ -27,7 +26,6 @@ public class JumpPad extends StaticBody implements CollisionListener {
         super(world, shape);
         addImage(image1);
         this.addCollisionListener(this);
-        //this.setAlwaysOutline(true);
     }
 
     public JumpPad(World world, boolean type) {

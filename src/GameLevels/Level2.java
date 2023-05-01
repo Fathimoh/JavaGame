@@ -28,6 +28,8 @@ public class Level2 extends GameLevel {
         }
     }
 
+    GameView view;
+
     public Level2(Game game) {
         super(game);
         gameMusic.play();
@@ -79,7 +81,7 @@ public class Level2 extends GameLevel {
         c6.addCollisionListener(cp);
 
         //Make beetles//
-        BeetleEncounter be = new BeetleEncounter(getKnight());
+        BeetleEncounter be = new BeetleEncounter(getKnight(), game);
         Beetle B1 = new Beetle(this);
         B1.setPosition(new Vec2(15f, -12f));
         B1.addCollisionListener(be);
@@ -115,7 +117,7 @@ public class Level2 extends GameLevel {
 
     @Override
     public boolean isComplete() {
-        if (getKnight().getCoins() == 2)
+        if (getKnight().getCoins() == 12)
             return true;
         else return false;
     }
@@ -128,5 +130,10 @@ public class Level2 extends GameLevel {
     @Override
     public void endMusicBackground(){
         gameMusic.stop();
+    }
+
+    @Override
+    public void updateView(GameView view) {
+        this.view = view;
     }
 }

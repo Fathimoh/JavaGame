@@ -27,7 +27,7 @@ public class KnightController implements KeyListener {
             knight.removeAllImages();
             knight.addImage(image2);
         }
-    }
+        }
 
     private void setAttackImage(float height, String attackImageFile) {
         BodyImage attackImage;
@@ -94,8 +94,6 @@ public class KnightController implements KeyListener {
             setAttackImage(4f, "data/Attack2Right.gif");
             attack = new Slash(knight.getWorld(), knight, "right");
         }
-
-
     }
 
     @Override
@@ -123,7 +121,6 @@ public class KnightController implements KeyListener {
     }
 
     public void updateKnight(Knight knight) {
-        this.attack.updateKnight(knight);
         this.knight = knight;
     }
 }

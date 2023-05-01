@@ -41,7 +41,7 @@ public class CoinsPickup implements CollisionListener {
             coinSound.play();
             collisionEvent.getOtherBody().destroy();
             if(level.isComplete()){
-                game.goToNextLevel();//
+                game.goToNextLevel();
             }
         }
     }

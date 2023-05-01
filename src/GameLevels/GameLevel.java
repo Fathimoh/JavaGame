@@ -2,12 +2,11 @@ package GameLevels;
 
 import city.cs.engine.World;
 import game.Game;
+import game.GameView;
 import game.Knight;
-import game.KnightController;
 
 public abstract class GameLevel extends World {
     private Knight knight;
-    private KnightController controller;
     public GameLevel(Game game){
         super(60);
         knight = new Knight(this);
@@ -16,13 +15,12 @@ public abstract class GameLevel extends World {
         return knight;
     }
 
-    public KnightController getController() {
-        return controller;
-    }
 
     public abstract boolean isComplete();
 
     public abstract void playMusicBackground();
 
     public abstract void endMusicBackground();
+
+    public abstract void updateView(GameView view);
 }

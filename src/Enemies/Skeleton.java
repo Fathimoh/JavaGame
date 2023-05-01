@@ -23,7 +23,6 @@ public class Skeleton extends Walker implements StepListener {
         addImage(image);
         world.addStepListener(this);
         startWalking(SPEED);
-        //this.setAlwaysOutline(true);
     }
 
     public void setPosition(Vec2 position){

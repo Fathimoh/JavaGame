@@ -27,14 +27,11 @@ public class Knight extends Walker {
         this.setGravityScale(2f);
         SolidFixture fixture = new SolidFixture(this, KnightShape);
         fixture.setFriction(0);
-
-        //this.setAlwaysOutline(true);
     }
 
     public void DecreaseKnightHealth(){
         health -= 1;
     }
-
     public int getHealth(){
         return health;
     }
@@ -70,11 +67,4 @@ public class Knight extends Walker {
         return VultureCounter;
     }
 }
-
-/*what's left:
-
-- menu screen
-- gameover screen
-
- */
 

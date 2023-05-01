@@ -9,6 +9,7 @@ import city.cs.engine.Shape;
 import city.cs.engine.SoundClip;
 import game.Game;
 import Objects.Platform;
+import game.GameView;
 import org.jbox2d.common.Vec2;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
@@ -26,6 +27,8 @@ public class Level3 extends GameLevel {
             System.out.println(e);
         }
     }
+
+    GameView view;
 
     public Level3(Game game) {
         super(game);
@@ -92,7 +95,7 @@ public class Level3 extends GameLevel {
         c6.addCollisionListener(cp);
 
         //make Vultures//
-        VultureEncounter ve = new VultureEncounter(getKnight());
+        VultureEncounter ve = new VultureEncounter(getKnight(), game);
         Vulture v1 = new Vulture(this);
         v1.setPosition(new Vec2(25f, -12f));
         v1.addCollisionListener(ve);
@@ -128,7 +131,7 @@ public class Level3 extends GameLevel {
 
     @Override
     public boolean isComplete() {
-        if (getKnight().getCoins() == 3)
+        if (getKnight().getCoins() == 18)
             return true;
         else return false;
     }
@@ -141,5 +144,10 @@ public class Level3 extends GameLevel {
     @Override
     public void endMusicBackground(){
         gameMusic.stop();
+    }
+
+    @Override
+    public void updateView(GameView view) {
+        this.view = view;
     }
 }

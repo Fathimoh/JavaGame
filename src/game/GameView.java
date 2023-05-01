@@ -55,10 +55,6 @@ public class GameView extends UserView {
 
     }
 
-    public void removeView(){
-        this.setVisible(false);
-    }
-
 
     @Override
     protected void paintBackground(Graphics2D g) {
