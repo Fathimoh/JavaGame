@@ -18,7 +18,6 @@ public class Slash extends DynamicBody {
 
     public Slash(World world, Knight knight, String direction) {
         super(world);
-
         Shape shape = new BoxShape(0.8f, 1.4f);
         new GhostlyFixture(this, shape);
         new ProjectileSensor(this, shape, knight);

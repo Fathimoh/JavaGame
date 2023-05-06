@@ -1,6 +1,7 @@
 package GUI;
 
 import GameLevels.GameLevel;
+import game.Game;
 import game.GameView;
 
 import javax.swing.*;
@@ -15,8 +16,11 @@ public class ControlPanel {
     private JButton playButton;
     public JPanel mainPanel;
     private JButton quitButton;
+    private JButton instructionsButton;
+    private Instructions instructions;
 
     public ControlPanel(JFrame frame, GameLevel level, GameView view) {
+        instructions = new Instructions(frame, this);
         Font font;
         Font buttonFont;
         try{
@@ -52,14 +56,17 @@ public class ControlPanel {
 
         // Set the bounds of the buttons relative to the background image
         playButton.setBounds(550, 250, 300, 40);
-        quitButton.setBounds(650, 300, 100, 40);
+        quitButton.setBounds(650, 350, 100, 40);
+        instructionsButton.setBounds(550, 300, 300, 40);
 
         // Add the buttons to the background image label
         backgroundLabel.add(playButton);
         backgroundLabel.add(quitButton);
+        backgroundLabel.add(instructionsButton);
 
         playButton.setFont(buttonFont);
         quitButton.setFont(buttonFont);
+        instructionsButton.setFont(buttonFont);
 
         JLabel textLabel = new JLabel("The Knight's Adventure");
         textLabel.setFont(font);
@@ -72,6 +79,7 @@ public class ControlPanel {
             public void actionPerformed(ActionEvent e) {
                 level.start();
                 level.playMusicBackground();
+                view.setVisible(true);
                 frame.add(view);
                 mainPanel.setVisible(false);
             }
@@ -83,6 +91,21 @@ public class ControlPanel {
                 System.exit(0);
             }
         });
+
+        instructionsButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                view.setVisible(false);
+                mainPanel.setVisible(false);
+                frame.add(mainPanel);
+                instructions.getMainPanel().setVisible(true);
+                frame.add(instructions.getMainPanel());
+            }
+        });
+    }
+
+    public JPanel getMainPanel(){
+        return mainPanel;
     }
 
     public void updateLevel(GameLevel level) {

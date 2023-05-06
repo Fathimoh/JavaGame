@@ -2,6 +2,7 @@ package game;
 
 import GUI.ControlPanel;
 import GUI.DeathScreen;
+import GUI.Instructions;
 import GameLevels.GameLevel;
 import GameLevels.Level1;
 import GameLevels.Level2;
@@ -34,7 +35,6 @@ public class Game {
         frame.setLocationByPlatform(true);
         frame.setSize(new Dimension(1424, 640));
         frame.setResizable(false);
-
         deathScreen = new DeathScreen(frame, level, view, this);
         controlPanel = new ControlPanel(frame, level, view);
         frame.add(controlPanel.mainPanel);
