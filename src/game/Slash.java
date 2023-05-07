@@ -6,7 +6,14 @@ import GameLevels.Level3;
 import city.cs.engine.*;
 import org.jbox2d.common.Vec2;
 
+/**
+ * @author Fathi, Mohamed, Fathi.Mohamed@city.ac.uk
+ */
 public class Slash extends DynamicBody {
+    /**
+     * fields that have different images of projectile slashes
+     * Each projectile is used in different levels
+     */
 
     private static final BodyImage NormalSlashRight = new BodyImage("data/ProjectileSlashRight.png", 3f);
     private static final BodyImage FlameSlashRight = new BodyImage("data/ProjectileFlameSlashRight.png", 3f);
@@ -15,7 +22,13 @@ public class Slash extends DynamicBody {
     private static final BodyImage WaterSlashRight = new BodyImage("data/ProjectileWaterSlashRight.png", 3f);
     private static final BodyImage WaterSlashLeft = new BodyImage("data/ProjectileWaterSlashLeft.png", 3f);
 
-
+    /**
+     * method used to create the functionality of the slash projectile
+     * this method will have many features such how fast the slash will move, the force acting against the slash, the distance it will start from...
+     * @param world used to display the slash into the world
+     * @param knight used to display the slash from the knight into the world (knight used to slash positioning)
+     * @param direction used to figure out which direction the slash is going in
+     */
     public Slash(World world, Knight knight, String direction) {
         super(world);
         Shape shape = new BoxShape(0.8f, 1.4f);

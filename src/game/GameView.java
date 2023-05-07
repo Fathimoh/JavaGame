@@ -12,11 +12,30 @@ import java.io.FileInputStream;
 import java.io.InputStream;
 import javax.swing.*;
 
+/**
+ * @author Fathi, Mohamed, Fathi.Mohamed@city.ac.uk
+ */
+
 public class GameView extends UserView {
+    /**
+     * used to hold the image of level 1
+     */
     private final Image backgroundLVL1;
+    /**
+     * used to hold the image of level 2
+     */
     private final Image backgroundLVL2;
+    /**
+     * used to hold the image of level 3
+     */
     private final Image backgroundLVL3;
+    /**
+     * used to hold coin image
+     */
     private final Image Coin;
+    /**
+     * used to call the knight to the view
+     */
     private Knight knight;
     private final Image Skull;
     private final Image Heart;
@@ -24,6 +43,13 @@ public class GameView extends UserView {
     private final Image vulture;
     private GameLevel level;
 
+    /**
+     * this constructor will initialise all images and icons and will also be used to give focus to the screen
+     * @param world used to call level and use it when displaying backgrounds
+     * @param width used to adjust the width of the images
+     * @param height used to adjust the height of the images
+     * @param knight used to display the stats of the knight
+     */
     public GameView(GameLevel world, int width, int height, Knight knight) {
         super(world, width, height);
         this.backgroundLVL1 = new ImageIcon("data/BG.png").getImage();
@@ -41,6 +67,9 @@ public class GameView extends UserView {
         this.add(musicOffCheckBox);
         GiveFocus giveFocus = new GiveFocus(this);
         musicOffCheckBox.addMouseListener(giveFocus);
+        /**
+         * used to add a checkbox button on the gameview so the music can be turned off
+         */
         musicOffCheckBox.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -55,7 +84,10 @@ public class GameView extends UserView {
 
     }
 
-
+    /**
+     * used to display the background images of the levels
+     * @param g used to print the images on the background
+     */
     @Override
     protected void paintBackground(Graphics2D g) {
         if (level instanceof Level1) {
@@ -69,6 +101,10 @@ public class GameView extends UserView {
         }
     }
 
+    /**
+     * used to display the stats of the character on the foreground
+     * @param g used to print the image and writing on the foreground of the view
+     */
     @Override
     protected void paintForeground(Graphics2D g) {
         Font font;
@@ -118,12 +154,19 @@ public class GameView extends UserView {
         g.drawImage(vulture, 110, 135, 35, 35, this);
     }
 
+    /**
+     * used to update the knight
+     * @param knight
+     */
     public void updateKnight(Knight knight){
         this.knight = knight;
     }
 
+    /**
+     * used to update the level
+     * @param level
+     */
     public void update(GameLevel level){
         this.level = level;
     }
 }
-

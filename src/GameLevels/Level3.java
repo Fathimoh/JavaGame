@@ -14,7 +14,9 @@ import org.jbox2d.common.Vec2;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 import java.io.IOException;
-
+/**
+ * @author Fathi, Mohamed, Fathi.Mohamed@city.ac.uk
+ */
 public class Level3 extends GameLevel {
 
     private static SoundClip gameMusic;
@@ -29,7 +31,11 @@ public class Level3 extends GameLevel {
     }
 
     GameView view;
-
+    /**
+     * a method used to create the whole of level 3
+     * this method contains many images and shapes and also allows for collision detections to occur
+     * @param game
+     */
     public Level3(Game game) {
         super(game);
         gameMusic.play();
@@ -128,7 +134,10 @@ public class Level3 extends GameLevel {
         getKnight().addCollisionListener(cp);
 
     }
-
+    /**
+     * this method will check if the criteria is met and if its met then the level is considered completed
+     * @return used to check if the coins is equal to 18 and if is then the game is finished
+     */
     @Override
     public boolean isComplete() {
         if (getKnight().getCoins() == 18)

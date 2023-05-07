@@ -1,7 +1,9 @@
 package Objects;
 
 import city.cs.engine.*;
-
+/**
+ * @author Fathi, Mohamed, Fathi.Mohamed@city.ac.uk
+ */
 public class Coins extends DynamicBody {
     private static final Shape coinShape = new BoxShape(0.8f,0.8f);
     private static final BodyImage image =

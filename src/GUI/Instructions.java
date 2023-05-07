@@ -8,7 +8,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.FileInputStream;
 import java.io.InputStream;
-
+/**
+ * @author Fathi, Mohamed, Fathi.Mohamed@city.ac.uk
+ */
 public class Instructions {
     private JButton backButton;
     private JPanel mainPanel;
@@ -16,6 +18,12 @@ public class Instructions {
     private ControlPanel controlPanel;
     private GameLevel level;
 
+    /**
+     *  method that will hold the functioning of the buttons and will as contain the looks of the menu
+     * buttons have been relocated and fonts have been used to make the screen look more aesthetically pleasing
+     * @param frame used to add on so its visible
+     * @param controlPanel used to retrieve the mainpanel from the controlPanel class
+     */
     public Instructions(JFrame frame, ControlPanel controlPanel){
         Font buttonFont;
         try{
@@ -42,6 +50,11 @@ public class Instructions {
 
 
         backButton.addActionListener(new ActionListener() {
+            /**
+             * method used to create the functionality of the back button
+             * the back button will take you back to the main menu page when clicked on
+             * @param e the event to be processed
+             */
             @Override
             public void actionPerformed(ActionEvent e) {
                 mainPanel.setVisible(false);

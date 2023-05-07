@@ -5,7 +5,9 @@ import game.Knight;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 import java.io.IOException;
-
+/**
+ * @author Fathi, Mohamed, Fathi.Mohamed@city.ac.uk
+ */
 public class JumpPad extends StaticBody implements CollisionListener {
 
     private static final Shape shape = new BoxShape(1, 0.5f);
@@ -22,12 +24,21 @@ public class JumpPad extends StaticBody implements CollisionListener {
         }
     }
 
+    /**
+     * A constructor of jumpPad that is used to create a jumpPad and add the collision listener
+     * @param world used so it can access and display it in the world
+     */
     public JumpPad(World world) {
         super(world, shape);
         addImage(image1);
         this.addCollisionListener(this);
     }
 
+    /**
+     * another constructor of jumpPad that is used to create a jumpPad and add the collision listener
+     * @param world used so it can access and display it in the world
+     * @param type used to differ from the other constructor, so it can display another image instead
+     */
     public JumpPad(World world, boolean type) {
         super(world, shape);
         addImage(image2);
@@ -35,6 +46,11 @@ public class JumpPad extends StaticBody implements CollisionListener {
         this.addCollisionListener(this);
     }
 
+    /**
+     * method that detects the collision between the knight and the jumpPad
+     * when the knight collides with the jumpPad, the knight will move up in the y-axis with a speed of 30
+     * @param e used to detect collisions
+     */
     @Override
     public void collide(CollisionEvent e) {
         if (e.getOtherBody() instanceof Knight knight) {

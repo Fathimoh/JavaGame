@@ -2,7 +2,6 @@ package game;
 
 import GUI.ControlPanel;
 import GUI.DeathScreen;
-import GUI.Instructions;
 import GameLevels.GameLevel;
 import GameLevels.Level1;
 import GameLevels.Level2;
@@ -10,19 +9,40 @@ import GameLevels.Level3;
 
 import javax.swing.*;
 import java.awt.*;
-
 /**
+ * @author Fathi, Mohamed, Fathi.Mohamed@city.ac.uk
  * Your main game entry point
  */
 public class Game {
+    /**
+     * used to check what level it is
+     */
     private GameLevel level;
+    /**
+     * used to display the game
+     */
     private GameView view;
+    /**
+     * used to control the character
+     */
     private KnightController controller;
+    /**
+     * used to display the main menu
+     */
     private final ControlPanel controlPanel;
+    /**
+     * used to display the death screen
+     */
     private final DeathScreen deathScreen;
+    /**
+     * used to display the frame of the game
+     */
     private final JFrame frame;
 
     /** Initialise a new Game. */
+    /**
+     * this constructor will initialise a new game
+     */
     public Game() {
         level = new Level1(this);
         view = new GameView(level, 1424, 600, level.getKnight());
@@ -38,11 +58,13 @@ public class Game {
         deathScreen = new DeathScreen(frame, level, view, this);
         controlPanel = new ControlPanel(frame, level, view);
         frame.add(controlPanel.mainPanel);
-
         frame.setVisible(true);
-
     }
 
+    /**
+     * method used to switch between levels
+     * this method will end the current level then move on to the next level and when doing this many other classes are being updated along
+     */
     public void goToNextLevel(){
         if (level instanceof Level1){
             int coins = level.getKnight().getCoins();
@@ -83,6 +105,11 @@ public class Game {
 
         }
     }
+
+    /**
+     * method used to restart the level when you click play again on the deathscreen
+     * this method will restart the game from level 1
+     */
     public void restartLevel(){
         level.stop();
         level.endMusicBackground();
@@ -96,6 +123,10 @@ public class Game {
         level.start();
     }
 
+    /**
+     * method used to display the deathscreen
+     * when the knight dies the deathscreen will be brought up with this method
+     */
     public void deathScreen(){
         level.endMusicBackground();
         view.setVisible(false);

@@ -16,6 +16,9 @@ import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 import java.io.IOException;
 
+/**
+ * @author Fathi, Mohamed, Fathi.Mohamed@city.ac.uk
+ */
 public class Level1 extends GameLevel {
     private static SoundClip gameMusic;
 
@@ -29,6 +32,12 @@ public class Level1 extends GameLevel {
             System.out.println(e);
         }
     }
+
+    /**
+     * a method used to create the whole of level 1
+     * this method contains many images and shapes and also allows for collision detections to occur
+     * @param game
+     */
     public Level1(Game game){
         super(game);
         getKnight().setPosition(new Vec2(-34, -13));
@@ -103,9 +112,14 @@ public class Level1 extends GameLevel {
         getKnight().addCollisionListener(se);
         getKnight().addCollisionListener(cp);
     }
+
+    /**
+     * this method will check if the criteria is met and if its met then the level is considered completed
+     * @return used to check if the coins is equal to 6 and if it is move to level 2
+     */
     @Override
     public boolean isComplete() {
-        return getKnight().getCoins() == 6;
+        return getKnight().getCoins() == 1;
     }
 
     @Override

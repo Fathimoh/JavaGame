@@ -10,15 +10,27 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.FileInputStream;
 import java.io.InputStream;
-
+/**
+ * @author Fathi, Mohamed, Fathi.Mohamed@city.ac.uk
+ */
 public class ControlPanel {
     private GameLevel level;
+    /**
+     * field that have been created when the buttons were added to the GUI using the form
+     */
     private JButton playButton;
     public JPanel mainPanel;
     private JButton quitButton;
     private JButton instructionsButton;
     private Instructions instructions;
 
+    /**
+     * method that will hold the functioning of the buttons and will as contain the looks of the menu
+     * buttons have been relocated and fonts have been used to make the screen look more aesthetically pleasing
+     * @param frame used to add on so its visible
+     * @param level used to decide whether when the button is clicked whether to start on level 1,2,3
+     * @param view used to update the view on the panel
+     */
     public ControlPanel(JFrame frame, GameLevel level, GameView view) {
         instructions = new Instructions(frame, this);
         Font font;
@@ -75,6 +87,11 @@ public class ControlPanel {
         backgroundLabel.add(textLabel);
 
         playButton.addActionListener(new ActionListener() {
+            /**
+             * method used to determine the functionality of the play button
+             * this button will start the level when clicked on
+             * @param e the event to be processed
+             */
             @Override
             public void actionPerformed(ActionEvent e) {
                 level.start();
@@ -86,6 +103,11 @@ public class ControlPanel {
         });
 
         quitButton.addActionListener(new ActionListener() {
+            /**
+             * this method is used to determine the functionality of  quit button
+             * the button will exit the whole game when clicked on
+             * @param e the event to be processed
+             */
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.exit(0);
@@ -93,6 +115,11 @@ public class ControlPanel {
         });
 
         instructionsButton.addActionListener(new ActionListener() {
+            /**
+             * this method determines the funtionality of the instructions button
+             * the instructions button will take you to another menu screen when clicked on
+             * @param e the event to be processed
+             */
             @Override
             public void actionPerformed(ActionEvent e) {
                 view.setVisible(false);
@@ -104,6 +131,10 @@ public class ControlPanel {
         });
     }
 
+    /**
+     * Method used access the mainpanel from another class
+     * @return used to return the panel
+     */
     public JPanel getMainPanel(){
         return mainPanel;
     }
